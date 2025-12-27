@@ -36,7 +36,9 @@ export function Navbar() {
         <div className="hidden lg:flex items-center gap-4">
           
           <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
-            Join Waitlist
+             <a href="https://forms.gle/zdJF2e2pDhcN7aLX7" target="_blank" rel="noopener noreferrer">
+    Join Waitlist
+  </a>
           </Button>
         </div>
 
@@ -57,17 +59,15 @@ export function Navbar() {
             <a href="#" className="block text-foreground py-2">
               Docs
             </a>
-            <a href="#" className="block text-foreground py-2">
-              Pricing
-            </a>
+           
             <a href="#" className="block text-foreground py-2">
               Company
             </a>
             <div className="pt-4 space-y-2">
-              <Button variant="outline" className="w-full bg-transparent">
-                Log In
-              </Button>
-              <Button className="w-full bg-primary text-primary-foreground">Start Free</Button>
+              
+              <Button className="w-full bg-primary text-primary-foreground"><a href="https://forms.gle/zdJF2e2pDhcN7aLX7" target="_blank" rel="noopener noreferrer">
+    Join Waitlist
+  </a></Button>
             </div>
           </div>
         </div>

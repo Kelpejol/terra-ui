@@ -7,31 +7,38 @@ export function HeroSection() {
       <div className="max-w-5xl mx-auto text-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm mb-8">
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          Now in Public Beta
+          Now in Beta
         </div>
+<h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-6 text-balance">
+  Orchestration Infrastructure for <span className="text-primary">Agent Workflows</span>
+</h1>
 
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-6 text-balance">
-          Adaptive Control Plane for <span className="text-primary">Multi-Agent Systems.</span> 
-        </h1>
-
-        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed text-pretty">
-          Terra orchestrates, composes agents across frameworks—LangChain, AutoGen, custom tools—with runtime goal-based routing through a universal manifest
-          system — delivering adaptive workflows, durable run state, policy enforcement, full observability, and
-          complete operational control. 
-        </p>
+<p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed text-pretty">
+  Runtime coordination layer for production agent systems. Adaptive routing, 
+  policy enforcement, and operational controls—built on Kagent.
+</p>
 
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 h-12 px-8 text-base">
-            Join Waitlist
-            <ArrowRight className="ml-2 w-4 h-4" />
+            <a href="https://forms.gle/zdJF2e2pDhcN7aLX7" target="_blank" rel="noopener noreferrer">
+    Join Waitlist
+    
+  </a>
           </Button>
           
         </div>
-        <div className="mt-8 flex items-center justify-center gap-8 text-sm text-muted-foreground">
-  <span>Self-hosted or cloud</span>
-  <span>•</span>
-  <span>Built on Kagent</span>
+       <div className="mt-10 flex items-center justify-center gap-6 text-xs text-muted-foreground">
+  <span className="flex items-center gap-2">
+    <span className="w-1 h-1 rounded-full bg-primary/60" />
+    Self-hosted
+  </span>
+  <span className="flex items-center gap-2">
+    <span className="w-1 h-1 rounded-full bg-primary/60" />
+    Built on Kagent
+  </span>
+ 
+   
 </div>
 
         <div className="mt-20 relative">

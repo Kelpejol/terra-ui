@@ -1,33 +1,33 @@
 import { BookOpen, Zap, Database, Shield, Users, LineChart } from "lucide-react"
 
 export function SolutionSection() {
- const solutions = [
+const solutions = [
   {
     icon: BookOpen,
-    title: "Capability Registry",
-    description: "Register agents via manifest. Describe what each agent can do—cluster diagnostics, compliance checks, data processing. Terra discovers capabilities without code.",
+    title: "Agent Registry",
+    description: "Declare agent capabilities in YAML manifests. Terra discovers what each agent can do without code changes.",
   },
   {
     icon: Zap,
     title: "Adaptive Routing",
-    description: "Terra selects agents at runtime based on registered capabilities, current state, and policy constraints. No pre-wired workflows.",
+    description: "Runtime agent selection based on goal, current state, and registered capabilities. No hardcoded workflows.",
   },
   {
     icon: Shield,
-    title: "Policy Enforcement",
-    description: "Define rules once—approval thresholds, rate limits, team permissions. Terra enforces before every agent invocation. Built on OPA for policy-as-code.",
+    title: "Policy Engine",
+    description: "Declarative constraints enforced before invocation. Approval gates, rate limits, RBAC. Built on OPA.",
   },
-    {
-      icon: Users,
-      title: "Human-in-the-Loop",
-      description: "Runs pause for approval, accept corrections, and log all interventions.",
-    },
-    {
-      icon: LineChart,
-      title: "Full Observability",
-      description: "Structured traces, timelines, and payload snapshots. End-to-end visibility.",
-    },
-  ]
+  {
+    icon: Database,
+    title: "Durable Execution",
+    description: "Append-only event log. Complete execution trace. Deterministic replay for debugging and compliance.",
+  },
+  {
+    icon: LineChart,
+    title: "Operational Controls",
+    description: "Pause workflows. Approve sensitive actions. Replay runs. Export audit logs. Unified dashboard.",
+  },
+]
 
   return (
     <section className="py-24 px-6 bg-secondary/10">

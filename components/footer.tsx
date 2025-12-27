@@ -30,8 +30,8 @@ export function Footer() {
               <span className="text-lg font-semibold text-foreground">TERRA</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Control plane for multi-agent systems.
-            </p>
+  Orchestration infrastructure for agent workflows.
+</p>
           </div>
 
           {columns.map((column, index) => (

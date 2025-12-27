@@ -17,36 +17,32 @@ const problems = [
     title: "No Policy Enforcement",
     description: "Can't enforce approval gates, rate limits, or compliance rules across agent invocations. Each agent handles constraints differently—or not at all.",
   },
-    {
-      icon: Database,
-      title: "Lost state & context",
-      description: "Intermediate results and decision history are scattered, making debugging impossible.",
-    },
-    {
-      icon: Gauge,
-      title: "Operational complexity",
-      description: "Retries, backoffs, fallbacks, and recovery are implemented inconsistently.",
-    },
-    {
-      icon: Eye,
-      title: "No unified control",
-      description: "Operators lack a single place to inspect, pause, modify, or replay workflows.",
-    },
-    {
-      icon: Plug,
-      title: "Integration friction",
-      description: "Combining internal and third-party tools is time-consuming and fragile.",
-    },
-  ]
+  {
+    icon: Database,
+    title: "Scattered State",
+    description: "Execution history fragmented across systems. No unified trace. Debugging multi-agent workflows is impossible.",
+  },
+  {
+    icon: Eye,
+    title: "No Operational Controls",
+    description: "Can't pause workflows. Can't replay for debugging. No approval gates. Manual intervention when failures occur.",
+  },
+  {
+    icon: Gauge,
+    title: "Inconsistent Reliability",
+    description: "Retry logic, backoff strategies, and fallbacks implemented per-agent. No standardized failure handling.",
+  },
+]
 
   return (
     <section className="py-24 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4">Production Agent Systems Need Coordination Infrastructure</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Current tooling leaves teams with fragmented systems, no unified control and breaks at scale.
-          </p>
+         <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4">What's Broken Today</h2>
+<p className="text-muted-foreground max-w-2xl mx-auto">
+  Agent workflows lack orchestration infrastructure. Teams build glue code 
+  that breaks under production load.
+</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

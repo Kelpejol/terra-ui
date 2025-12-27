@@ -26,9 +26,9 @@ export function DeepFeatures() {
     <section className="py-24 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Technical Features</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Infrastructure Primitives</h2>
 <p className="text-muted-foreground max-w-2xl mx-auto">
-  The operational primitives production agent systems require.
+  Production-grade orchestration with operational controls.
 </p>
         </div>
 
