@@ -1,29 +1,22 @@
 import { BookOpen, Zap, Database, Shield, Users, LineChart } from "lucide-react"
 
 export function SolutionSection() {
-  const solutions = [
-    {
-      icon: BookOpen,
-      title: "Universal Registry",
-      description:
-        "Canonical manifest format for every capability. Inputs, outputs, examples — machine-readable and discoverable.",
-    },
-    {
-      icon: Zap,
-      title: "Adaptive Orchestration",
-      description:
-        "Runtime decisions, not static pipelines. Terra dynamically chooses actions based on state and policies.",
-    },
-    {
-      icon: Database,
-      title: "Durable State & Traceability",
-      description: "Append-only execution trace. Every decision, retry, and approval logged for deterministic replay.",
-    },
-    {
-      icon: Shield,
-      title: "Operational Safety",
-      description: "Declarative policies enforced automatically. Rate limits, approvals, sensitive data handling.",
-    },
+ const solutions = [
+  {
+    icon: BookOpen,
+    title: "Capability Registry",
+    description: "Register agents via manifest. Describe what each agent can do—cluster diagnostics, compliance checks, data processing. Terra discovers capabilities without code.",
+  },
+  {
+    icon: Zap,
+    title: "Adaptive Routing",
+    description: "Terra selects agents at runtime based on registered capabilities, current state, and policy constraints. No pre-wired workflows.",
+  },
+  {
+    icon: Shield,
+    title: "Policy Enforcement",
+    description: "Define rules once—approval thresholds, rate limits, team permissions. Terra enforces before every agent invocation. Built on OPA for policy-as-code.",
+  },
     {
       icon: Users,
       title: "Human-in-the-Loop",
@@ -40,10 +33,10 @@ export function SolutionSection() {
     <section className="py-24 px-6 bg-secondary/10">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">What Terra Fixes</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            A unified system for registering capabilities, running workflows, and managing every execution.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How Terra Works</h2>
+<p className="text-muted-foreground max-w-2xl mx-auto">
+  Infrastructure-grade orchestration with operational controls production systems require.
+</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

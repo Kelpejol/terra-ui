@@ -24,10 +24,10 @@ policies:
     <section className="py-24 px-6 bg-secondary/10">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Configuration as Code</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Define tools and workflows in simple, declarative YAML. No complex SDKs required.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Declare, Don't Code</h2>
+<p className="text-muted-foreground max-w-2xl mx-auto">
+  Agent capabilities, workflow policies, and operational constraints—all in YAML.
+</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">

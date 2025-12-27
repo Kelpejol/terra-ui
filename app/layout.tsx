@@ -8,9 +8,9 @@ const _inter = Inter({ subsets: ["latin"] })
 const _jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Terra — The Control Plane for Tool & Agent Orchestration",
+  title: "Terra — Orchestration Infrastructure for Agent Systems",
   description:
-    "Terra orchestrates, composes, and operates arbitrarily many tools and agents through a universal manifest system — delivering adaptive workflows, durable run state, policy enforcement, full observability, and complete operational control.",
+    "Runtime coordination for production agent workflows. Built on Kagent. Adaptive routing, policy enforcement, and operational controls. Self-hosted or cloud.",
   generator: "v0.app",
 }
 

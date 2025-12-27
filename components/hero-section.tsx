@@ -28,11 +28,11 @@ export function HeroSection() {
           </Button>
           
         </div>
-        <div className="mt-8 relative">
-        <p>
-          <span className="text-lg text-white absolute inset-0">Cloud or Self-hosted</span>
-        </p>
-        </div>
+        <div className="mt-8 flex items-center justify-center gap-8 text-sm text-muted-foreground">
+  <span>Self-hosted or cloud</span>
+  <span>•</span>
+  <span>Built on Kagent</span>
+</div>
 
         <div className="mt-20 relative">
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 pointer-events-none" />

@@ -1,45 +1,35 @@
-import { Brain, RotateCcw, LayoutDashboard } from "lucide-react"
+import { Brain, RotateCcw, LayoutDashboard, Shield } from "lucide-react"
 
 export function DeepFeatures() {
   const features = [
-    {
-      icon: Brain,
-      title: "Decoupled Decision Engine",
-      description:
-        "Evaluates state, manifests, historical behavior and policies to choose the next action. No hardcoded flows — pure adaptive orchestration.",
-      details: ["State-aware action selection", "Policy-driven boundaries", "Runtime capability discovery"],
-    },
-    {
-      icon: RotateCcw,
-      title: "Durable Execution & Recovery",
-      description:
-        "Retries, backoff, fallback, streaming — orchestrated, not manual. Every failure mode handled systematically.",
-      details: ["Automatic retry with exponential backoff", "Fallback tool chains", "Streaming support built-in"],
-    },
-  //  {
-  //   title: "Declarative Policy Enforcement",
-  //   icon: RotateCcw,
-  //   description:
-  //     "Define rules in YAML using OPA (Open Policy Agent). Evaluated before every agent invocation. Approval thresholds, RBAC, rate limits, compliance constraints—enforced automatically.",
-  //   details: ["Rate limiting & quotas", "Compliance enforcement", "Access controls & approvals"],
-  //  },
-    {
-      icon: LayoutDashboard,
-      title: "Unified Dashboard",
-      description:
-        "Pause, resume, mutate, approve, replay — all in one place. Complete operational control over every run.",
-      details: ["Real-time run monitoring", "In-flight state mutation", "Deterministic replay"],
-    },
-  ]
+  {
+    icon: Brain,
+    title: "Runtime Orchestration",
+    description: "Terra makes routing decisions at execution time based on agent capabilities and current workflow state. Add new agents without changing orchestration code.",
+    details: ["Goal-to-capability matching", "State-aware routing", "Dynamic agent selection"],
+  },
+  {
+    icon: Shield,
+    title: "Policy-as-Code",
+    description: "Declarative constraints enforced before every invocation. Approval workflows, rate limits, team-based access control. Built on OPA for standard policy evaluation.",
+    details: ["YAML policy definitions", "Pre-invocation checks", "Compliance audit trails"],
+  },
+  {
+    icon: LayoutDashboard,
+    title: "Operational Controls",
+    description: "Pause workflows for review. Approve sensitive actions. Replay executions deterministically for debugging. The control plane operators need.",
+    details: ["Pause/resume execution", "Approval gates", "Deterministic replay"],
+  },
+]
 
   return (
     <section className="py-24 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Deep Technical Features</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Infrastructure-grade reliability with operator-friendly controls.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Technical Features</h2>
+<p className="text-muted-foreground max-w-2xl mx-auto">
+  The operational primitives production agent systems require.
+</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">

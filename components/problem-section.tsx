@@ -1,17 +1,22 @@
-import { AlertTriangle, Code2, Database, Gauge, Eye, Plug } from "lucide-react"
+import { AlertTriangle, Code2, Database, Gauge, Eye, Plug, Shield } from "lucide-react"
 
 export function ProblemSection() {
-  const problems = [
-    {
-      icon: AlertTriangle,
-      title: "Fragmented agents systems",
-      description: "Teams build/buy many agents with different frameworks. Each operates independently. No unified orchestration for multi-step workflows. No standardized contract exists.",
-    },
-    {
-      icon: Code2,
-      title: "Hard-coded Workflow Logic",
-      description: "Routing between agents requires code changes. Every business rule modification means redeployment. Brittle, expensive to maintain, impossible to adapt at runtime.",
-    },
+const problems = [
+  {
+    icon: AlertTriangle,
+    title: "No Orchestration Layer",
+    description: "Agents operate independently. Coordinating multi-step workflows requires custom code. No standardized way to route between agents at runtime.",
+  },
+  {
+    icon: Code2,
+    title: "Hard-Coded Logic",
+    description: "Agent selection and routing live in application code. Every workflow change means redeployment. Can't adapt based on runtime conditions or policies.",
+  },
+  {
+    icon: Shield,
+    title: "No Policy Enforcement",
+    description: "Can't enforce approval gates, rate limits, or compliance rules across agent invocations. Each agent handles constraints differently—or not at all.",
+  },
     {
       icon: Database,
       title: "Lost state & context",

@@ -29,9 +29,9 @@ export function ArchitectureDiagram() {
 
           {/* Middle Layer - Adapters */}
           <div className="p-6 rounded-xl border border-border bg-card/50 mb-4">
-            <div className="text-center text-sm font-medium text-muted-foreground mb-4">TOOL & AGENT ADAPTERS</div>
+    <div className="text-center text-sm font-medium text-muted-foreground mb-4">AGENT RUNTIME (Built on Kagent)</div>
             <div className="grid grid-cols-5 gap-3">
-              {["Internal APIs", "External Services", "AI Agents", "Databases", "Third-party"].map((item) => (
+              {["Kagent Agents", "Custom Agents", "LangChain", "AutoGen", "APIs"].map((item) => (
                 <div key={item} className="text-center p-2 rounded-lg bg-secondary/50 border border-border">
                   <span className="text-xs text-muted-foreground">{item}</span>
                 </div>
