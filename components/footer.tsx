@@ -28,7 +28,7 @@ export function Footer() {
               <span className="text-lg font-semibold text-foreground">Consonant</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-  Orchestration infrastructure for agent workflows.
+  Orchestration infrastructure for agent.
 </p>
           </div>
 
