@@ -17,7 +17,7 @@ export function Navbar() {
             <div className="w-8 h-8 rounded-md bg-primary/20 border border-primary/40 flex items-center justify-center">
               <span className="text-primary font-bold text-sm">T</span>
             </div>
-            <span className="text-xl font-semibold tracking-tight text-foreground">TERRA</span>
+            <span className="text-xl font-semibold tracking-tight text-foreground">CONSONANT</span>
           </a>
 
           <div className="hidden lg:flex items-center gap-8">

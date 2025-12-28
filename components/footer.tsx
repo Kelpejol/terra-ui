@@ -27,7 +27,7 @@ export function Footer() {
               <div className="w-8 h-8 rounded-md bg-primary/20 border border-primary/40 flex items-center justify-center">
                 <span className="text-primary font-bold text-sm">T</span>
               </div>
-              <span className="text-lg font-semibold text-foreground">TERRA</span>
+              <span className="text-lg font-semibold text-foreground">Consonant</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
   Orchestration infrastructure for agent workflows.
@@ -51,7 +51,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">© 2025 Terra. Built on Kagent (CNCF Sandbox Project). All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2025 Consonant. Built on Kagent (CNCF Sandbox Project). All rights reserved.</p>
           <div className="flex items-center gap-6">
             <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Twitter

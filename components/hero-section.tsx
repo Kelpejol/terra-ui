@@ -48,7 +48,7 @@ export function HeroSection() {
               <div className="w-3 h-3 rounded-full bg-destructive/60" />
               <div className="w-3 h-3 rounded-full bg-chart-4/60" />
               <div className="w-3 h-3 rounded-full bg-primary/60" />
-              <span className="text-xs text-muted-foreground ml-4 font-mono">terra-dashboard</span>
+              <span className="text-xs text-muted-foreground ml-4 font-mono">consonant-dashboard</span>
             </div>
             <div className="p-6 h-80 bg-gradient-to-br from-card to-secondary/20 flex items-center justify-center">
               <div className="text-muted-foreground/50 text-sm">Coming Here soon!</div>

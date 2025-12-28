@@ -12,7 +12,7 @@ export function ArchitectureDiagram() {
         <div className="relative max-w-4xl mx-auto">
           {/* Top Layer - Control Plane */}
           <div className="p-6 rounded-xl border border-primary/50 bg-primary/5 mb-4">
-            <div className="text-center text-sm font-medium text-primary mb-4">TERRA CONTROL PLANE</div>
+            <div className="text-center text-sm font-medium text-primary mb-4">CONSONANT CONTROL PLANE</div>
             <div className="grid grid-cols-4 gap-4">
               {["Decision Engine", "Policy Engine", "State Store", "Observability"].map((item) => (
                 <div key={item} className="text-center p-3 rounded-lg bg-card border border-border">

@@ -5,7 +5,7 @@ const solutions = [
   {
     icon: BookOpen,
     title: "Agent Registry",
-    description: "Declare agent capabilities in YAML manifests. Terra discovers what each agent can do without code changes.",
+    description: "Declare agent capabilities in YAML manifests. Consonant discovers what each agent can do without code changes.",
   },
   {
     icon: Zap,
@@ -33,7 +33,7 @@ const solutions = [
     <section className="py-24 px-6 bg-secondary/10">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How Terra Works</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How Consonant Works</h2>
 <p className="text-muted-foreground max-w-2xl mx-auto">
   Infrastructure-grade orchestration with operational controls production systems require.
 </p>

@@ -5,7 +5,7 @@ export function DeepFeatures() {
   {
     icon: Brain,
     title: "Runtime Orchestration",
-    description: "Terra makes routing decisions at execution time based on agent capabilities and current workflow state. Add new agents without changing orchestration code.",
+    description: "Consonant makes routing decisions at execution time based on agent capabilities and current workflow state. Add new agents without changing orchestration code.",
     details: ["Goal-to-capability matching", "State-aware routing", "Dynamic agent selection"],
   },
   {

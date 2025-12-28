@@ -1,5 +1,5 @@
 export function CodeDemo() {
-  const manifestCode = `# terra-manifest.yml
+  const manifestCode = `# consonant-manifest.yml
 version: 1
 tool:
   id: refund_issuer
@@ -12,7 +12,7 @@ tool:
     max_attempts: 3
     backoff: exponential`
 
-  const runCode = `# terra-run.yml
+  const runCode = `# consonant-run.yml
 goal: "Investigate double charge and refund"
 policies:
   approvals:
@@ -34,7 +34,7 @@ policies:
           <div>
             <div className="rounded-xl border border-border bg-card overflow-hidden">
               <div className="h-10 bg-secondary/50 border-b border-border flex items-center px-4">
-                <span className="text-xs text-muted-foreground font-mono">terra-manifest.yml</span>
+                <span className="text-xs text-muted-foreground font-mono">consonant-manifest.yml</span>
               </div>
               <pre className="p-6 text-sm font-mono text-foreground overflow-x-auto">
                 <code>{manifestCode}</code>
@@ -49,7 +49,7 @@ policies:
           <div>
             <div className="rounded-xl border border-border bg-card overflow-hidden">
               <div className="h-10 bg-secondary/50 border-b border-border flex items-center px-4">
-                <span className="text-xs text-muted-foreground font-mono">terra-run.yml</span>
+                <span className="text-xs text-muted-foreground font-mono">consonant-run.yml</span>
               </div>
               <pre className="p-6 text-sm font-mono text-foreground overflow-x-auto">
                 <code>{runCode}</code>
