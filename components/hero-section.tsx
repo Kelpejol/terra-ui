@@ -10,7 +10,7 @@ export function HeroSection() {
           Now in Beta
         </div>
 <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-6 text-balance">
-  Think kubernetes but for your<span className="text-primary">Agent</span>
+  Think kubernetes but for your <span className="text-primary"> Agent</span>
 </h1>
 
 <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed text-pretty">
