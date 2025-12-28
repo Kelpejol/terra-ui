@@ -24,9 +24,7 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-md bg-primary/20 border border-primary/40 flex items-center justify-center">
-                <span className="text-primary font-bold text-sm">T</span>
-              </div>
+              
               <span className="text-lg font-semibold text-foreground">Consonant</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
