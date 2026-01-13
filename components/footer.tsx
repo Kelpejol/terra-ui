@@ -16,8 +16,8 @@ export function Footer() {
                 src="/consonant-logo.png" 
                 alt="Consonant Logo" 
                 width={100} 
-                height={32} 
-                className="h-8 w-auto brightness-0 invert opacity-80" 
+                height={36} 
+                className="h-9 w-auto" 
               />
             </Link>
             <p className="text-sm text-muted-foreground mb-4">

@@ -17,8 +17,8 @@ export function Navbar() {
             src="/consonant-logo.png" 
             alt="Consonant Logo" 
             width={120} 
-            height={36} 
-            className="h-9 w-auto brightness-0 invert" 
+            height={42} 
+            className="h-10 w-auto" 
           />
         </Link>
 
