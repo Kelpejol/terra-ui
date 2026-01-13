@@ -84,7 +84,7 @@ export function ProblemSection() {
             THE REALITY OF PRODUCTION
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-            The Five Production Disasters
+            The Seven Production Disasters
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg/relaxed">
             If you bundle your agents into a single container, you are building a system guaranteed to fail.
@@ -133,9 +133,9 @@ export function ProblemSection() {
         {/* Transition Statement */}
         <div className="mt-16 text-center animate-fade-in-up delay-300">
           <p className="text-xl md:text-2xl font-medium text-foreground">
-            If you have 3+ agents in production, you've hit at least three of these.
+            If you have 3+ agents in production, you've hit at least five of these.
             <br />
-            <span className="text-primary font-bold mt-2 inline-block">Consonant solves all five.</span>
+            <span className="text-primary font-bold mt-2 inline-block">Consonant solves all seven.</span>
           </p>
         </div>
       </div>
