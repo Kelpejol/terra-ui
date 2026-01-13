@@ -51,7 +51,7 @@ export function ComparisonSection() {
                          <td className="py-4 px-6 font-medium">Time to Prod</td>
                         <td className="py-4 px-6">Months</td>
                         <td className="py-4 px-6">Months</td>
-                        <td className="py-4 px-6 bg-primary/5 font-bold text-green-500">A day</td>
+                        <td className="py-4 px-6 bg-primary/5 font-bold text-green-500">One day</td>
                     </tr>
                 </tbody>
             </table>

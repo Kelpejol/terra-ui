@@ -8,7 +8,7 @@ export function PersonasSection() {
       icon: Server,
       title: "Platform Engineering",
       needs: [
-        "Running 5+ AI agents in production",
+        "Running 3+ AI agents in production",
         "Tired of fragile monolithic deployments",
         "Need governance and observability"
       ],
@@ -28,7 +28,7 @@ export function PersonasSection() {
       icon: Rocket,
       title: "AI-First Companies",
       needs: [
-        "Scaling from 10 to 100+ agents",
+        "Scaling 3+ agents",
         "Need independent agent lifecycle",
         "Want runtime intelligence"
       ],

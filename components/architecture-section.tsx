@@ -76,8 +76,8 @@ export function ArchitectureSection() {
 
             {/* 4. KAGENT LAYER */}
             <div className="bg-muted/10 border border-border border-dashed rounded-3xl p-8 relative z-10 text-center">
-                <div className="font-bold text-muted-foreground mb-6 uppercase tracking-widest text-xs">
-                    4. KAGENT (K8s agentic runtime) - Agent deployed as k8s CRDs on your infra
+                <div className="font-bold text-muted-foreground mb-6 tracking-widest text-xs">
+                    4. KAGENT (K8s agentic runtime) - Agent deployed as k8s CRDs on your infra (GKE/EKS/AKS)
                 </div>
                 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

@@ -15,7 +15,7 @@ export function ProblemSection() {
       ],
       solutionLines: [
         "20% degradation",
-        "7 days downtime/year",
+        "0 day downtime",
         "$2.75M saved"
       ]
     },
@@ -102,7 +102,7 @@ export function ProblemSection() {
         
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-            The Six Production Disasters
+            The Production Disasters
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg/relaxed">
             Monolithic agent systems inevitably hit these walls.

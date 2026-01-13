@@ -8,6 +8,7 @@ import { ROISection } from "@/components/roi-section"
 import { MetricsStrip } from "@/components/metrics-strip"
 import { PersonasSection } from "@/components/personas-section"
 import { ComparisonSection } from "@/components/comparison-section"
+import { GettingStartedSection } from "@/components/getting-started-section"
 import { FinalCTA } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
 
@@ -25,6 +26,7 @@ export default function Home() {
       <MetricsStrip />
       <PersonasSection />
       <ComparisonSection />
+      <GettingStartedSection />
       <FinalCTA />
       <Footer />
     </main>

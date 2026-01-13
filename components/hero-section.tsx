@@ -14,15 +14,15 @@ export function HeroSection() {
       
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-destructive/30 bg-destructive/5 text-destructive text-sm font-medium mb-8 animate-fade-in-up">
-          <AlertTriangle className="w-4 h-4" />
-          <span>The Hidden Cost of Multi-Agent Systems</span>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm mb-8">
+          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+          Now in Beta
         </div>
         
         {/* Main Headline */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground text-center mb-6 max-w-4xl animate-fade-in-up delay-100">
-          <span className="block">Think Kubernetes but for your </span>
-          <span className="block text-primary mt-2"> multi Agents systems.</span>
+          <span className="block">Think kubernetes but for your </span>
+          <span className="block text-primary mt-2"> multi agents systems.</span>
         </h1>
         
         {/* Subheadline */}

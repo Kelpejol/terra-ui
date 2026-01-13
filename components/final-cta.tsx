@@ -17,9 +17,7 @@ export function FinalCTA() {
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Get Started
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Stop letting your agents crash together. Separate them today.
-          </p>
+         
         </div>
 
         {/* 3 User Paths */}

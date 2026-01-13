@@ -34,7 +34,7 @@ export function MetricsStrip() {
       label: "System Uptime",
       context: {
         before: "18 days downtime",
-        after: "0 days downtime",
+        after: "0 day downtime",
         saved: "$2.75M revenue protected"
       }
     }
