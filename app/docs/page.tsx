@@ -140,6 +140,8 @@ export default function DocsIntroduction() {
             <li><strong>Observability:</strong> Complete distributed traces across every agent interaction.</li>
         </ul>
 
+
+
         <h2>Ship Confidently</h2>
         <div className="grid sm:grid-cols-2 gap-4 not-prose mt-8">
           <NextStepCard 
