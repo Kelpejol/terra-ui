@@ -51,8 +51,7 @@ export default function ConceptsPage() {
 
         <h3>4. Plan & Tasks</h3>
         <p>
-            When a Goal is received, the Control Plane generates a <strong>Plan</strong>. A Plan consists of a DAG (Directed Acyclic Graph) of <strong>Tasks</strong>.
-            Each Task is assigned to a specific Agent.
+            When a Goal is received, the Control Plane generates a <strong>Plan</strong>. Each Task is assigned to a specific Agent.
         </p>
 
         <Callout type="info" title="Dynamic Planning">

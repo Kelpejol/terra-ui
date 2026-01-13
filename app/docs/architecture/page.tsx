@@ -44,7 +44,7 @@ export default function ArchitecturePage() {
                  </div>
                </div>
                <div>
-                  <h3 className="text-xl font-bold mb-2 text-foreground">2. Consonant Core (The Brain)</h3>
+                  <h3 className="text-xl font-bold mb-2 text-foreground">2. Consonant Core (The Orchestrator and control plane)</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     The Control Plane receives goals, breaks them into plans, and enforces enterprise-grade <strong>Policies</strong>. It handles routing and ensures no agent executes an unauthorized action.
                   </p>
@@ -59,7 +59,7 @@ export default function ArchitecturePage() {
                  </div>
                </div>
                <div>
-                  <h3 className="text-xl font-bold mb-2 text-foreground">3. The Relayer (Intelligence)</h3>
+                  <h3 className="text-xl font-bold mb-2 text-foreground">3. The Relayer (Communication layer)</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     A zero-trust networking layer that coordinates communication between agents. It ensures that data flows only where it is allowed and provides 100% observability into every interaction.
                   </p>
@@ -74,9 +74,9 @@ export default function ArchitecturePage() {
                  </div>
                </div>
                <div>
-                  <h3 className="text-xl font-bold mb-2 text-foreground">4. KAgent (Execution)</h3>
+                  <h3 className="text-xl font-bold mb-2 text-foreground">4. KAgent (Agentic runtime and execution layer)</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    The atomic unit of compute. Every agent runs in an isolated Pod with dedicated resources. One KAgent crashes? The rest of the cluster never feels it.
+                    The atomic unit of compute. Every agent runs in an isolated Pod with dedicated resources on your K8s provider (GKE, EKS, AKS, etc.) .
                   </p>
                </div>
             </div>

@@ -19,7 +19,7 @@ export default function RunWorkflowPage() {
             In traditional automation, you write a script that says <em>"Do A, then B, then C."</em> In Consonant, you submit a <strong>Goal</strong>: <em>"Acknowledge this refund request and verify it against our policy."</em>
         </p>
         <p>
-            The Consonant Planner then looks at all registered KAgents, identifies the best fits, and executes the necessary steps across the distributed cluster.
+            The Consonant Planner then looks at all registered agents, identifies the best fits, and executes the necessary steps across the distributed cluster.
         </p>
 
         <h2>Executing via CLI</h2>
@@ -39,7 +39,7 @@ export default function RunWorkflowPage() {
             <div className="flex gap-4">
                 <span className="text-muted-foreground w-12 shrink-0">00:01s</span>
                 <span className="text-primary font-bold">PLANNER</span>
-                <span className="text-foreground">Decomposing goal into 2 steps (PolicyCheck, Auditor)</span>
+                <span className="text-foreground">Decomposing goal into 2 steps </span>
             </div>
             <div className="flex gap-4">
                 <span className="text-muted-foreground w-12 shrink-0">00:03s</span>

@@ -27,7 +27,7 @@ export default function DocsIntroduction() {
           Frameworks like LangGraph, CrewAI, and AutoGen make it easy to build. But the industry standard deployment pattern—packaging everything into a single Docker container—is a scaling dead end. 
         </p>
         <p>
-          When you move from "it works on my laptop" to 100+ production agents, you hit **The Six Production Disasters**:
+          When you move from "it works on my laptop" to 3+ production agents, you hit ** Six Production Disasters**:
         </p>
 
         <div className="grid md:grid-cols-2 gap-4 not-prose my-8">
@@ -89,7 +89,7 @@ export default function DocsIntroduction() {
 
         <h2>The Consonant Solution: Agent Isolation</h2>
         <p>
-          Consonant is Kubernetes for AI agents. We provide a distributed runtime where <strong>each agent runs in its own isolated container</strong>. 
+          Consonant provides a distributed runtime where <strong>each agent runs in its own isolated container</strong>. 
         </p>
         <p>
           Instead of a monolithic mistake, you get a robust, self-healing system where agents scale, crash, and deploy independently.
@@ -128,7 +128,7 @@ export default function DocsIntroduction() {
                    <span className="text-[9px] text-primary font-bold">POD</span>
                  </div>
                </div>
-               <span className="text-xs font-bold text-primary">7 Days Downtime/yr</span>
+               <span className="text-xs font-bold text-primary">0 Downtime/yr</span>
             </div>
           </div>
         </div>

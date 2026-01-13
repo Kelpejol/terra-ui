@@ -20,7 +20,7 @@ export default function ObservabilityPage() {
 
         <Callout type="info" title="Zero-Code Instrumentation">
             <p>
-                Consonant's sidecar proxy automatically intercepts all agent traffic. You get full traces, token usage, and latency metrics without adding a single line of SDK code to your agent's source.
+                With Consonant, you get full traces, token usage, and latency metrics.
             </p>
         </Callout>
 
@@ -35,7 +35,7 @@ export default function ObservabilityPage() {
                     <Activity className="w-5 h-5 text-primary" />
                     <h4 className="font-bold text-foreground">OTEL Spans</h4>
                 </div>
-                <p className="text-sm text-muted-foreground">Every HTTP/gRPC request, LLM call, and tool execution is recorded as an OpenTelemetry span. We track <strong>tokens, latency, and temperature</strong> per call.</p>
+                <p className="text-sm text-muted-foreground">Every HTTP/gRPC request, LLM call, and tool execution is recorded as an OpenTelemetry span.</p>
             </div>
             <div className="p-5 rounded-xl border border-border bg-card/30">
                 <div className="flex items-center gap-3 mb-3">
@@ -75,10 +75,7 @@ export default function ObservabilityPage() {
             </div>
         </div>
 
-        <h3>Impact Measurement</h3>
-        <p>
-            Beyond debugging, Consonant measures the **Cost of Intelligence**. You can see exactly how much each business process (e.g., "Customer Onboarding") costs in LLM spend, API calls, and compute seconds.
-        </p>
+        
 
         <div className="grid sm:grid-cols-2 gap-4 not-prose mt-12">
           <NextStepCard 

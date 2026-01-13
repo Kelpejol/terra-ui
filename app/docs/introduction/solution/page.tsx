@@ -16,7 +16,7 @@ export default function SolutionPage() {
         
         <h2>The Three Pillars of Consonant</h2>
         <p>
-          To solve the seven production disasters, Consonant fundamentally changes the architecture of multi-agent systems.
+          To solve the production disasters, Consonant fundamentally changes the architecture of multi-agent systems.
           We provide three core capabilities that work together to create a robust production environment.
         </p>
 
