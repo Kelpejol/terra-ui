@@ -21,8 +21,8 @@ export function HeroSection() {
         
         {/* Main Headline */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground text-center mb-6 max-w-4xl animate-fade-in-up delay-100">
-          <span className="block">Think kubernetes but for your </span>
-          <span className="block text-primary mt-2"> multi agents systems.</span>
+          <span className="block">Run multi-agent AI systems </span>
+          <span className="block text-primary mt-2"> in production safely</span>
         </h1>
         
         {/* Subheadline */}
@@ -31,7 +31,7 @@ export function HeroSection() {
           <span className="text-foreground font-semibold"> 40% of your compute</span>, 
           creates <span className="text-foreground font-semibold">100% blast radius</span> on every deploy, 
           and forces you to scale everything together. 
-          Consonant runs each agent independently—they scale separately, fail separately, and deploy separately.
+          Consonant runs each agent independently—they scale separately on your k8s, fail separately, Enforce governance and coordinate agent adaptively.
         </p>
         
         {/* CTAs */}
