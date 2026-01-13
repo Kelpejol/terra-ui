@@ -24,10 +24,7 @@ const docsConfig = {
       items: [
         { title: "The Monolithic Problem", href: "/docs/architecture/monolithic-problem" },
         { title: "Consonant Architecture", href: "/docs/architecture" }, // Maps to /docs/architecture/page.tsx
-        { title: "KAgent Runtime", href: "/docs/architecture/kagent" },
-        { title: "Control Plane", href: "/docs/architecture/control-plane" },
-        { title: "Observability Layer", href: "/docs/architecture/observability" },
-        { title: "Data Flow lifecycle", href: "/docs/architecture/data-flow" },
+        { title: "Observability Layer", href: "/docs/architecture/observability" },     
       ],
     },
     {
