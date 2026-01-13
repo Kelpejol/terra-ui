@@ -1,204 +1,166 @@
-import Link from "next/link"
-import { ArrowRight, BookOpen, Rocket, Layers, Code2, Shield, Plug } from "lucide-react"
+"use client"
 
-export default function DocsHome() {
+import { DocHeader, Callout, CodeBlock, NextStepCard } from "./doc-components"
+import { AlertTriangle, Cpu, Shield, Clock, Lock } from "lucide-react"
+
+export default function DocsIntroduction() {
   return (
-    <div>
-      {/* Header */}
-      <div className="mb-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium mb-4">
-          <BookOpen className="w-3.5 h-3.5" />
-          DOCUMENTATION
-        </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-          What is Consonant?
-        </h1>
-        <p className="text-xl text-muted-foreground leading-relaxed">
-          Consonant is orchestration infrastructure for production AI agent systems. 
-          It coordinates multiple agents with governance, auditability, and operational controls.
-        </p>
-      </div>
+    <div className="max-w-4xl">
+      <DocHeader 
+        title="The Production Problem"
+        description="Why packaging multiple AI agents into a single container is a recipe for disaster, and how Consonant fixes it."
+        label="Introduction"
+      />
 
-      {/* Quick Definition */}
-      <div className="p-6 rounded-xl border border-primary/30 bg-primary/5 mb-12">
-        <p className="text-lg text-foreground leading-relaxed">
-          <strong className="text-primary">In one sentence:</strong> Consonant coordinates multiple AI agents 
-          across different frameworks by making intelligent routing decisions at runtime, automatically 
-          enforcing governance policies, and providing operational controls that production systems require.
+      <div className="prose prose-invert max-w-none">
+        <h2>The State of Multi-Agent Systems</h2>
+        <p>
+          Most developers start building multi-agent systems using frameworks like LangGraph, CrewAI, or AutoGen. 
+          It's easy to get started: you write a Python script, define a few agents (Researcher, Writer, Reviewer), 
+          and string them together in a graph.
         </p>
-      </div>
+        <p>
+          It works perfectly on your laptop. Then you deploy it to production.
+        </p>
 
-      {/* The Analogy */}
-      <div className="mb-12">
-        <h2 className="text-2xl font-bold text-foreground mb-4">The Perfect Analogy</h2>
-        <p className="text-muted-foreground mb-6">
-          Think of Consonant as <strong className="text-foreground">air traffic control for AI agents</strong>.
+        <Callout type="danger" title="The Monolithic Trap">
+          <p>
+            The industry standard deployment pattern is the <strong>Monolithic Container</strong>: 
+            packaging all your agent code, dependencies, and orchestration logic into a single Docker image.
+          </p>
+        </Callout>
+
+        <h3>Why Monoliths Fail at Scale</h3>
+        <p>
+          When you have 3+ agents running in a single container, you hit five unavoidable production disasters:
         </p>
-        
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="p-5 rounded-xl border border-destructive/30 bg-destructive/5">
-            <h3 className="font-semibold text-foreground mb-3 flex items-center gap-2">
-              <span className="text-destructive">✗</span> Without Consonant
-            </h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>• Manual coordination between agents</li>
-              <li>• Rules scattered across codebases</li>
-              <li>• No central record of decisions</li>
-              <li>• Chaos at scale</li>
-            </ul>
+
+        <div className="grid md:grid-cols-2 gap-4 not-prose my-8">
+          <div className="p-5 rounded-xl border border-destructive/20 bg-destructive/5">
+            <h4 className="font-bold text-destructive flex items-center gap-2 mb-2">
+              <AlertTriangle className="w-4 h-4" /> 1. Blast Radius
+            </h4>
+            <p className="text-sm text-foreground/80">
+              One agent has a memory leak? The entire container crashes. Your healthy agents go down with it. 
+              <strong>100% outage from a single failure.</strong>
+            </p>
           </div>
-          <div className="p-5 rounded-xl border border-primary/30 bg-primary/5">
-            <h3 className="font-semibold text-foreground mb-3 flex items-center gap-2">
-              <span className="text-primary">✓</span> With Consonant
-            </h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>• Automated coordination based on goals</li>
-              <li>• Policies enforced automatically</li>
-              <li>• Complete audit trail for every decision</li>
-              <li>• Scales naturally with your agents</li>
-            </ul>
+          <div className="p-5 rounded-xl border border-destructive/20 bg-destructive/5">
+            <h4 className="font-bold text-destructive flex items-center gap-2 mb-2">
+              <Cpu className="w-4 h-4" /> 2. Cost Waste
+            </h4>
+            <p className="text-sm text-foreground/80">
+              Agent A needs GPU. Agent B needs 0.1 CPU. You have to provision instances that handle BOTH. 
+              <strong>40%+ of your compute is wasted</strong> on over-provisioning.
+            </p>
+          </div>
+          <div className="p-5 rounded-xl border border-destructive/20 bg-destructive/5">
+            <h4 className="font-bold text-destructive flex items-center gap-2 mb-2">
+              <Clock className="w-4 h-4" /> 3. Deployment Risk
+            </h4>
+            <p className="text-sm text-foreground/80">
+               Fix a typo in Agent A? You must rebuild and redeploy the entire system. 
+               <strong>Every deploy risks bringing down the whole platform.</strong>
+            </p>
+          </div>
+          <div className="p-5 rounded-xl border border-destructive/20 bg-destructive/5">
+             <h4 className="font-bold text-destructive flex items-center gap-2 mb-2">
+              <Lock className="w-4 h-4" /> 4. Framework Lock-in
+            </h4>
+            <p className="text-sm text-foreground/80">
+              Started with LangGraph? You can't use a CrewAI agent now. 
+              <strong>You are locked into one framework</strong> for the lifecycle of the application.
+            </p>
           </div>
         </div>
-      </div>
 
-      {/* What Consonant IS / IS NOT */}
-      <div className="mb-12">
-        <h2 className="text-2xl font-bold text-foreground mb-6">What Consonant Is (and Isn't)</h2>
-        
-        <div className="space-y-4">
-          <IsItem 
-            is={true}
-            title="An Orchestration Control Plane"
-            description="Sits between your agents and provides runtime orchestration, policy enforcement, and operational controls."
-          />
-          <IsItem 
-            is={true}
-            title="Infrastructure Software"
-            description="Self-hosted in your Kubernetes cluster. All data stays in your infrastructure."
-          />
-          <IsItem 
-            is={true}
-            title="Framework-Agnostic"
-            description="Works with LangChain, AutoGen, CrewAI, or custom agents. Register capabilities, Consonant orchestrates."
-          />
-          <IsItem 
-            is={false}
-            title="Not an Agent Builder"
-            description="Use LangChain, AutoGen, etc. to build agents. Consonant coordinates agents that already exist."
-          />
-          <IsItem 
-            is={false}
-            title="Not a Hosting Platform"
-            description="Consonant orchestrates agents wherever they run (your K8s clusters). It's the coordination layer, not the hosting layer."
-          />
-        </div>
-      </div>
-
-      {/* Quick Links */}
-      <div className="mb-12">
-        <h2 className="text-2xl font-bold text-foreground mb-6">Get Started</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <QuickLink
-            href="/docs/quickstart"
-            icon={<Rocket className="w-5 h-5" />}
-            title="Quickstart"
-            description="Deploy Consonant in 5 minutes"
-          />
-          <QuickLink
-            href="/docs/architecture"
-            icon={<Layers className="w-5 h-5" />}
-            title="Architecture"
-            description="Understand how Consonant works"
-          />
-          <QuickLink
-            href="/docs/guides/agent-development"
-            icon={<Code2 className="w-5 h-5" />}
-            title="Agent Development"
-            description="Create and register agents"
-          />
-          <QuickLink
-            href="/docs/guides/policy-enforcement"
-            icon={<Shield className="w-5 h-5" />}
-            title="Policy Enforcement"
-            description="Implement governance policies"
-          />
-          <QuickLink
-            href="/docs/integrations/langchain"
-            icon={<Plug className="w-5 h-5" />}
-            title="Integrations"
-            description="Connect existing agent frameworks"
-          />
-        </div>
-      </div>
-
-      {/* Next Steps */}
-      <div className="p-6 rounded-xl border border-border bg-secondary/20">
-        <h3 className="font-semibold text-foreground mb-2">Next Steps</h3>
-        <p className="text-muted-foreground mb-4">
-          Ready to dive in? Start with the quickstart to deploy Consonant, or learn about 
-          the core concepts that make it work.
+        <h2>The Consonant Solution: Independence</h2>
+        <p>
+          Consonant rejects the monolith. Instead of bundling agents, we <strong>separate them</strong>.
         </p>
-        <div className="flex flex-wrap gap-3">
-          <Link 
+        <p>
+          Consonant provides a distributed runtime (KAgent) where each agent runs in its own isolated environment (Kubernetes Pod). 
+          They scale independently, crash independently, and are deployed independently.
+        </p>
+
+        <div className="my-8 rounded-xl overflow-hidden border border-border">
+          <div className="bg-secondary/50 p-4 border-b border-border flex items-center justify-between">
+            <span className="font-mono text-sm">architecture_comparison.svg</span>
+          </div>
+          <div className="p-8 bg-card/50 flex flex-col md:flex-row gap-8 items-center justify-center">
+            {/* Simple CSS diagram for documentation */}
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-48 h-32 border-2 border-dashed border-destructive rounded-lg flex flex-wrap gap-2 p-2 justify-center items-center bg-destructive/5 relative">
+                <span className="absolute -top-3 bg-background px-2 text-xs text-destructive font-bold">MONOLITH</span>
+                <div className="w-8 h-8 rounded bg-muted border border-border flex items-center justify-center text-xs">A</div>
+                <div className="w-8 h-8 rounded bg-muted border border-border flex items-center justify-center text-xs">B</div>
+                <div className="w-8 h-8 rounded bg-muted border border-border flex items-center justify-center text-xs">C</div>
+                <div className="w-full text-center text-[10px] text-destructive mt-1">Shared Failure Domain</div>
+              </div>
+            </div>
+
+            <div className="text-muted-foreground">→</div>
+
+            <div className="flex flex-col items-center gap-2">
+               <div className="flex gap-4">
+                 <div className="w-16 h-28 border-2 border-primary rounded-lg flex flex-col items-center justify-between p-2 bg-primary/5 relative">
+                   <div className="w-8 h-8 rounded bg-primary/20 border border-primary flex items-center justify-center text-xs">A</div>
+                   <span className="text-[10px] text-primary">2 CPU</span>
+                 </div>
+                 <div className="w-16 h-28 border-2 border-primary rounded-lg flex flex-col items-center justify-between p-2 bg-primary/5 relative">
+                   <div className="w-8 h-8 rounded bg-primary/20 border border-primary flex items-center justify-center text-xs">B</div>
+                   <span className="text-[10px] text-primary">0.1 CPU</span>
+                 </div>
+                 <div className="w-16 h-28 border-2 border-primary rounded-lg flex flex-col items-center justify-between p-2 bg-primary/5 relative">
+                   <div className="w-8 h-8 rounded bg-primary/20 border border-primary flex items-center justify-center text-xs">C</div>
+                   <span className="text-[10px] text-primary">GPU</span>
+                 </div>
+               </div>
+               <span className="text-xs text-primary font-bold">INDEPENDENT RUNTIMES</span>
+            </div>
+          </div>
+        </div>
+
+        <h3>How It Works</h3>
+        <p>
+          1. <strong>You define agents</strong> in simple YAML manifests.
+          <br/>
+          2. <strong>Consonant deploys them</strong> as individual services.
+          <br/>
+          3. <strong>The Control Plane</strong> coordinates them automatically for you.
+        </p>
+
+        <CodeBlock 
+          language="yaml" 
+          code={`# Create an agent that scales independently
+apiVersion: consonant/v1
+kind: Agent
+metadata:
+  name: researcher
+spec:
+  image: my-company/researcher:v1.2
+  resources:
+    cpu: "2"
+    memory: "4Gi"
+  scaling:
+    minReplicas: 1
+    maxReplicas: 10`} 
+        />
+
+        <h2>Ready to fix your production?</h2>
+        <div className="grid sm:grid-cols-2 gap-4 not-prose mt-8">
+          <NextStepCard 
+            href="/docs/introduction/solution"
+            title="How Consonant Solves This"
+            description="Deep dive into KAgent, Control Plane, and Observability."
+          />
+          <NextStepCard 
             href="/docs/quickstart"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
-          >
-            Start the Quickstart
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-          <Link 
-            href="/docs/why-consonant"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-foreground text-sm font-medium hover:bg-secondary/50 transition-colors"
-          >
-            Learn Why Consonant
-          </Link>
+            title="Quickstart Guide"
+            description="Deploy your first two agents in 5 minutes."
+          />
         </div>
       </div>
     </div>
-  )
-}
-
-function IsItem({ is, title, description }: { is: boolean; title: string; description: string }) {
-  return (
-    <div className={`p-4 rounded-lg border ${is ? "border-border bg-card/30" : "border-border bg-secondary/10"}`}>
-      <div className="flex items-start gap-3">
-        <span className={`text-lg ${is ? "text-primary" : "text-muted-foreground"}`}>
-          {is ? "✓" : "✗"}
-        </span>
-        <div>
-          <h4 className="font-medium text-foreground mb-1">{title}</h4>
-          <p className="text-sm text-muted-foreground">{description}</p>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function QuickLink({ 
-  href, 
-  icon, 
-  title, 
-  description 
-}: { 
-  href: string
-  icon: React.ReactNode
-  title: string
-  description: string 
-}) {
-  return (
-    <Link 
-      href={href}
-      className="group p-4 rounded-xl border border-border bg-card/30 hover:border-primary/30 hover:bg-primary/5 transition-all"
-    >
-      <div className="flex items-start gap-3">
-        <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
-          {icon}
-        </div>
-        <div>
-          <h4 className="font-medium text-foreground group-hover:text-primary transition-colors">{title}</h4>
-          <p className="text-xs text-muted-foreground mt-0.5">{description}</p>
-        </div>
-      </div>
-    </Link>
   )
 }

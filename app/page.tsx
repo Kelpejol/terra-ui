@@ -2,9 +2,7 @@ import { Navbar } from "@/components/navbar"
 import { HeroSection } from "@/components/hero-section"
 import { ProblemSection } from "@/components/problem-section"
 import { SolutionSection } from "@/components/solution-section"
-import { ArchitectureDiagram } from "@/components/architecture-diagram"
-import { UseCasesSection } from "@/components/use-cases"
-import { CodeDemo } from "@/components/code-demo"
+import { MetricsStrip } from "@/components/metrics-strip"
 import { FinalCTA } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
 
@@ -16,9 +14,7 @@ export default function Home() {
       <HeroSection />
       <ProblemSection />
       <SolutionSection />
-      <ArchitectureDiagram />
-      <UseCasesSection />
-      <CodeDemo />
+      <MetricsStrip />
       <FinalCTA />
       <Footer />
     </main>
@@ -37,3 +33,4 @@ function GridBackground() {
     </div>
   )
 }
+

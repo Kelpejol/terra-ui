@@ -1,87 +1,85 @@
 "use client"
 
 import { useState } from "react"
-import { BookOpen, Zap, Database, Shield, LineChart, ChevronRight, Check, Cpu, Workflow } from "lucide-react"
+import { BookOpen, Zap, Database, Shield, LineChart, ChevronRight, Check, Cpu, LayoutGrid, Search } from "lucide-react"
 
 export function SolutionSection() {
   const [activeTab, setActiveTab] = useState(0)
   
   const solutions = [
     {
+      icon: LayoutGrid,
+      title: "Independent Agent Runtime",
+      shortDesc: "Solves Blast Radius + Cost + Scale",
+      description: "Each agent runs in its own Kubernetes pod with exactly the resources it needs. When one crashes, others keep running. When you update one, others stay live. When demand spikes for one, only that agent scales.",
+      features: [
+        "40% cost reduction (right-sized resources)",
+        "75% deployment risk reduction (isolated updates)",
+        "90% scaling efficiency gain",
+        "99.9% uptime (failures don't cascade)",
+      ],
+      code: `# Each agent is independent - No global restart
+apiVersion: consonant/v1
+kind: Agent
+metadata:
+  name: researcher
+spec:
+  image: my-researcher:v1
+  resources:
+    cpu: "2"    # Heavy compute
+    memory: "4Gi"
+  replicas:
+    min: 2
+    max: 10     # Scales independently`,
+    },
+    {
       icon: Cpu,
-      title: "Goal-Driven Orchestration",
-      shortDesc: "Tell Consonant what, not how",
-      description: "Submit goals in natural language. Consonant's LangGraph-powered planning engine analyzes available agents, constructs execution plans dynamically, and adapts to failures automatically. No hardcoded workflows.",
+      title: "Automatic Coordination",
+      shortDesc: "How agents work together",
+      description: "When agents are independent, they need coordination. Consonant's control plane routes requests between agents based on goals, handles retries when agents fail, and enforces policies before risky operations.",
       features: [
-        "Runtime agent selection based on capabilities",
-        "Dynamic replanning when assumptions change",
-        "Parallel execution of independent sub-goals",
-        "Outcome: 90% reduction in glue code maintenance",
+        "Dynamic routing based on user goals",
+        "Automatic retries for transient failures",
+        "Policy enforcement (OPA) for safety",
+        "Audit logs for every decision",
       ],
-      code: `# Submit a goal - Consonant orchestrates automatically
-consonant run --goal "Diagnose database slowness and fix it"
+      code: `# Run a goal that requires multiple agents
+consonant run --goal "Refund customer #12345"
 
-# Consonant plans and executes:
-# → Routes to diagnostic-agent
-# → Analyzes results  
-# → Routes to remediation-agent
-# → Verifies fix applied`,
+# Consonant Control Plane:
+# 1. Routes to 'customer-db' (get order)
+# 2. Routes to 'refund-processor' (logic)
+# 3. Checks policy (Amount > $100?)
+# 4. Executes refund if approved`,
     },
     {
-      icon: Shield,
-      title: "Declarative Policy Enforcement",
-      shortDesc: "Governance that actually works",
-      description: "Define policies once using Open Policy Agent (OPA). Consonant enforces them before every agent invocation. Automatic approvals for high-risk actions. Prevent $1M mistakes with a single rule.",
+      icon: Search,
+      title: "Complete Visibility",
+      shortDesc: "Debug distributed agents",
+      description: "When agents are separated, failures become harder to debug. Consonant instruments every operation—every agent call, every database query, every LLM invocation—and gives you a timeline of exactly what happened.",
       features: [
-        "Policy-as-code with OPA/Rego",
-        "Automatic human-in-the-loop approvals",
-        "Rate limiting and cost controls",
-        "Outcome: Pass SOC2 & reduce risk by 75%",
+        "Debug failures in minutes, not hours",
+        "Replay workflows relative to state",
+        "Export audit trails (SOC2, HIPAA)",
+        "Trace full execution path",
       ],
-      code: `# Rego policy: require approval for production changes
-package consonant.policies
+      code: `# Visualization of the execution trace
+TRACE_ID: 8f2a1b9e
 
-require_approval if {
-    input.environment == "production"
-    input.action_type == "infrastructure_change"
-}
-
-deny[msg] if {
-    estimated_cost := input.llm_tokens * 0.00003
-    estimated_cost > 10
-    msg := "Cost exceeds $10 limit"
-}`,
-    },
-    {
-      icon: LineChart,
-      title: "Complete Observability",
-      shortDesc: "See everything, debug anything",
-      description: "OpenTelemetry-native tracing captures every agent call, LLM invocation, and policy decision. Replay failed workflows. Pause mid-execution. Right-size resources to stop wasting money.",
-      features: [
-        "Distributed tracing with OpenTelemetry",
-        "Deterministic replay for debugging",
-        "Pause and resume workflows",
-        "Outcome: 40% cost reduction via right-sizing",
-      ],
-      code: `# Every execution is fully traced
-Run ID: run_abc123
-Goal: "Process refund for customer #12345"
-
-TRACE:
-├─ Planning (0.8s)
-│  ├─ LLM Call: Claude Sonnet ($0.02)
-│  └─ Policy Check: ALLOW
-├─ customer-db-agent (0.4s) ✓
-├─ Policy Check: REQUIRE_APPROVAL
-├─ Human Approval (45s) ✓
-└─ refund-processor-agent (1.1s) ✓
-
-Total: 47.3s | Cost: $0.04`,
+[00:00] GOAL_SUBMITTED: "Refund #12345"
+[00:01] PLANNER: Selected agents [db, refund]
+[00:02] CALL: customer-db agent
+        └─ INPUT: { order_id: "12345" }
+        └─ OUTPUT: { amount: 150.00 }
+[00:03] POLICY_CHECK: "refund_limit"
+        └─ RESULT: APPROVED (Manager override)
+[00:04] CALL: refund-processor agent
+        └─ RESULT: SUCCESS`,
     },
   ]
 
   return (
-    <section className="py-28 px-6 bg-gradient-to-b from-background via-primary/[0.02] to-background relative">
+    <section id="how-it-works" className="py-24 px-6 bg-gradient-to-b from-background via-primary/[0.02] to-background relative">
       {/* Background accent */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/3 rounded-full blur-[200px]" />
@@ -91,57 +89,74 @@ Total: 47.3s | Cost: $0.04`,
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium mb-6">
-            <Workflow className="w-3.5 h-3.5" />
-            THE SOLUTION
+            <Cpu className="w-4 h-4" />
+            THE ARCHITECTURE
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-5">
-            How Consonant Works
+            How Consonant Solves This
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Infrastructure-grade orchestration with the operational controls 
-            production AI systems require.
+            We replace the monolithic container with a distributed agent runtime.
           </p>
         </div>
 
         {/* Before/After Code Comparison */}
         <div className="grid md:grid-cols-2 gap-8 mb-20 relative z-10">
           {/* Left: Without Consonant */}
-          <div className="rounded-xl border border-destructive/20 bg-destructive/5 overflow-hidden">
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-destructive/20 bg-destructive/10">
-              <div className="w-2.5 h-2.5 rounded-full bg-destructive" />
-              <div className="w-2.5 h-2.5 rounded-full bg-destructive/40" />
-              <div className="w-2.5 h-2.5 rounded-full bg-destructive/40" />
-              <span className="ml-2 text-xs font-mono text-destructive font-semibold">WITHOUT CONSONANT (Monolithic)</span>
+          <div className="rounded-xl border border-destructive/20 bg-destructive/5 overflow-hidden flex flex-col h-full">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-destructive/20 bg-destructive/10">
+               <div className="flex items-center gap-2">
+                <div className="w-2.5 h-2.5 rounded-full bg-destructive" />
+                <span className="text-xs font-mono text-destructive font-bold">THE PROBLEM (Monolith)</span>
+               </div>
             </div>
-            <div className="p-5 font-mono text-sm leading-relaxed overflow-x-auto">
-              <div className="text-muted-foreground"># Dockerfile: All agents in one container</div>
-              <div className="text-destructive/80 mt-2">COPY . /app</div>
-              <div className="text-destructive/80">CMD ["python", "start_all_agents.py"]</div>
+            <div className="p-5 font-mono text-xs md:text-sm leading-relaxed overflow-x-auto flex-grow bg-card/20">
+              <div className="text-muted-foreground"># Dockerfile: The "Easy" Way</div>
+              <div className="text-purple-400 mt-2">FROM</div>
+              <div className="text-foreground inline"> python:3.11</div>
               
-              <div className="text-muted-foreground mt-4"># Impact:</div>
-              <div className="text-destructive/80">→ Update one agent = Rebuild EVERYTHING</div>
-              <div className="text-destructive/80">→ One crash = 100% blast radius</div>
-              <div className="text-destructive/80">→ Shared resources = Scaling waste</div>
+              <div className="text-purple-400 mt-2">COPY</div>
+              <div className="text-foreground inline"> researcher.py writer.py editor.py .</div>
+              
+              <div className="text-purple-400 mt-2">CMD</div>
+              <div className="text-yellow-300 inline"> ["python", "run_all_agents.py"]</div>
+              
+              <div className="mt-6 pt-4 border-t border-destructive/20 text-destructive/90 space-y-2">
+                 <p># ❌ All agents restart together</p>
+                 <p># ❌ Over-provisioned (4 CPUs for all)</p>
+                 <p># ❌ Update one = Redeploy all</p>
+              </div>
             </div>
           </div>
 
           {/* Right: With Consonant */}
-          <div className="rounded-xl border border-primary/20 bg-primary/5 overflow-hidden shadow-lg shadow-primary/5">
-             <div className="flex items-center gap-2 px-4 py-3 border-b border-primary/20 bg-primary/10">
-              <div className="w-2.5 h-2.5 rounded-full bg-primary" />
-              <div className="w-2.5 h-2.5 rounded-full bg-primary/40" />
-              <div className="w-2.5 h-2.5 rounded-full bg-primary/40" />
-              <span className="ml-2 text-xs font-mono text-primary font-semibold">WITH CONSONANT (Independent)</span>
+          <div className="rounded-xl border border-primary/20 bg-primary/5 overflow-hidden shadow-lg shadow-primary/5 flex flex-col h-full">
+             <div className="flex items-center justify-between px-4 py-3 border-b border-primary/20 bg-primary/10">
+               <div className="flex items-center gap-2">
+                <div className="w-2.5 h-2.5 rounded-full bg-primary" />
+                <span className="text-xs font-mono text-primary font-bold">THE SOLUTION (Consonant)</span>
+               </div>
             </div>
-            <div className="p-5 font-mono text-sm leading-relaxed overflow-x-auto">
-              <div className="text-muted-foreground"># consonant-manifest.yaml: Independent Runtimes</div>
-              <div className="text-foreground mt-2"><span className="text-primary">researcher:</span></div>
-              <div className="text-foreground pl-4">image: agent-researcher:v2 <span className="text-muted-foreground"># Updates independently</span></div>
-              <div className="text-foreground pl-4">cpu: 2.0 <span className="text-muted-foreground"># Right-sized</span></div>
+            <div className="p-5 font-mono text-xs md:text-sm leading-relaxed overflow-x-auto flex-grow bg-card/20">
+              <div className="text-muted-foreground"># agent-manifest.yaml: Calculated Independence</div>
               
-              <div className="text-foreground mt-2"><span className="text-primary">editor:</span></div>
-              <div className="text-foreground pl-4">image: agent-editor:v1</div>
-              <div className="text-foreground pl-4">cpu: 0.1 <span className="text-muted-foreground"># Efficient</span></div>
+              <div className="text-foreground mt-2"><span className="text-blue-400">kind:</span> Agent</div>
+              <div className="text-foreground"><span className="text-blue-400">name:</span> researcher</div>
+              <div className="text-foreground"><span className="text-blue-400">spec:</span></div>
+              <div className="text-foreground pl-4">image: my-researcher:v1</div>
+              <div className="text-foreground pl-4">replicas: <span className="text-yellow-300">2-10</span></div>
+              <div className="text-foreground pl-4">cpu: <span className="text-yellow-300">"2.0"</span></div>
+              
+              <div className="border-t border-dashed border-border/40 my-3"></div>
+
+              <div className="text-foreground"><span className="text-blue-400">kind:</span> Agent</div>
+              <div className="text-foreground"><span className="text-blue-400">name:</span> writer</div>
+              <div className="text-foreground pl-4">cpu: <span className="text-yellow-300">"0.25"</span> <span className="text-muted-foreground"># Tiny!</span></div>
+
+              <div className="mt-4 pt-4 border-t border-primary/20 text-primary/90 space-y-2">
+                 <p># ✅ Restart/Update independently</p>
+                 <p># ✅ Right-sized (Save 40%)</p>
+              </div>
             </div>
           </div>
         </div>
@@ -192,18 +207,19 @@ Total: 47.3s | Cost: $0.04`,
 
           {/* Content Panel */}
           <div className="lg:col-span-3">
-            <div className="rounded-xl border border-border bg-card/50 backdrop-blur-sm overflow-hidden">
+            <div className="rounded-xl border border-border bg-card/50 backdrop-blur-sm overflow-hidden h-full flex flex-col">
               {/* Description */}
               <div className="p-6 border-b border-border">
-                <p className="text-foreground leading-relaxed">
+                <h3 className="text-xl font-bold mb-4">{solutions[activeTab].title}</h3>
+                <p className="text-foreground leading-relaxed mb-6">
                   {solutions[activeTab].description}
                 </p>
                 
                 {/* Features */}
-                <div className="mt-5 grid sm:grid-cols-2 gap-3">
+                <div className="grid sm:grid-cols-2 gap-3">
                   {solutions[activeTab].features.map((feature, index) => (
                     <div key={index} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Check className="w-4 h-4 text-primary shrink-0" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                       <span>{feature}</span>
                     </div>
                   ))}
@@ -211,7 +227,7 @@ Total: 47.3s | Cost: $0.04`,
               </div>
               
               {/* Code Block */}
-              <div className="bg-secondary/30">
+              <div className="bg-secondary/30 flex-grow">
                 <div className="flex items-center gap-2 px-4 py-2 border-b border-border">
                   <div className="w-2.5 h-2.5 rounded-full bg-destructive/60" />
                   <div className="w-2.5 h-2.5 rounded-full bg-chart-4/60" />
@@ -231,3 +247,4 @@ Total: 47.3s | Cost: $0.04`,
     </section>
   )
 }
+

@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Github, Play, Sparkles, Cpu, Shield, Eye } from "lucide-react"
+import { ArrowRight, Github, AlertTriangle } from "lucide-react"
 
 export function HeroSection() {
   return (
@@ -12,182 +12,180 @@ export function HeroSection() {
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px]" />
       </div>
       
-      <div className="max-w-6xl mx-auto text-center relative z-10">
+      <div className="max-w-7xl mx-auto flex flex-col items-center">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-destructive/30 bg-destructive/5 text-destructive text-sm mb-8 animate-fade-in-up">
-          <Sparkles className="w-4 h-4" />
-          <span>Production AI Systems Are Breaking</span>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-destructive/30 bg-destructive/5 text-destructive text-sm font-medium mb-8 animate-fade-in-up">
+          <AlertTriangle className="w-4 h-4" />
+          <span>The Hidden Cost of Multi-Agent Systems</span>
         </div>
         
         {/* Main Headline */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground mb-6 animate-fade-in-up delay-100">
-          <span className="block">Your AI agents crash together</span>
-          <span className="block text-gradient-primary">because they're stuck in the same container</span>
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground text-center mb-6 max-w-4xl animate-fade-in-up delay-100">
+          <span className="block">Your AI agents crash together.</span>
+          <span className="block text-primary mt-2">We separate them.</span>
         </h1>
         
         {/* Subheadline */}
-        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in-up delay-200">
-          <span className="text-foreground font-medium">Consonant separates them.</span> Each agent runs independently, 
-          scales on its own, and fails without taking down your entire system. Built on Kubernetes, works with any framework, 
-          enforces policies automatically.
+        <p className="text-lg md:text-xl text-muted-foreground text-center max-w-3xl mb-10 leading-relaxed animate-fade-in-up delay-200">
+          Deploying all your agents in one container wastes 
+          <span className="text-foreground font-semibold"> 40% of your compute</span>, 
+          creates <span className="text-foreground font-semibold">100% blast radius</span> on every deploy, 
+          and forces you to scale everything together. 
+          Consonant runs each agent independently—they scale separately, fail separately, and deploy separately.
         </p>
         
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6 animate-fade-in-up delay-300">
-          <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 h-14 px-8 text-base glow-border group">
-            <a href="https://forms.gle/zdJF2e2pDhcN7aLX7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-              <Play className="w-4 h-4" />
-              Try Demo
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up delay-300">
+          <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 h-14 px-8 text-base font-semibold glow-border group w-full sm:w-auto">
+            <a href="#how-it-works" className="flex items-center gap-2">
+              See How It Works
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </Button>
-          <Button size="lg" variant="outline" className="h-14 px-8 text-base border-border hover:border-primary/50 hover:bg-primary/5">
+          <Button size="lg" variant="outline" className="h-14 px-8 text-base font-medium border-border hover:bg-secondary w-full sm:w-auto">
             <a href="/docs" className="flex items-center gap-2">
-              View Docs
+              Read Docs
             </a>
           </Button>
-        </div>
-        
-        {/* Social Proof */}
-        <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground animate-fade-in-up delay-400">
           <a 
             href="https://github.com/consonant-ai/consonant" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mt-4 sm:mt-0 sm:ml-4"
           >
-            <Github className="w-4 h-4" />
-            <span>Star on GitHub</span>
+            <Github className="w-5 h-5" />
+            <span className="font-medium">Star on GitHub</span>
           </a>
-          <span className="w-1 h-1 rounded-full bg-muted-foreground/30" />
-          <span>Open Source</span>
-          <span className="w-1 h-1 rounded-full bg-muted-foreground/30" />
-          <span>Built on KAgent + Kubernetes</span>
         </div>
         
-        {/* Hero Diagram */}
-        <div className="mt-20 relative animate-fade-in-up delay-500">
-          <OrchestratorDiagram />
+        {/* Before/After Diagram */}
+        <div className="w-full max-w-6xl animate-fade-in-up delay-400">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+            
+            {/* BEFORE */}
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-destructive/20 to-orange-500/20 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000"></div>
+              <div className="relative flex flex-col h-full bg-card border border-destructive/20 rounded-xl p-6 md:p-8">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xl font-bold text-destructive flex items-center gap-2">
+                     🚫 BEFORE CONSONANT
+                  </h3>
+                  <span className="text-xs font-mono text-muted-foreground">Monolithic Container</span>
+                </div>
+                
+                {/* Visual Representation */}
+                <div className="bg-secondary/30 rounded-lg p-6 mb-6 border border-border/50 border-dashed">
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="w-full max-w-xs bg-muted border border-border rounded-md p-4 flex flex-wrap gap-2 justify-center relative overflow-hidden">
+                      {/* Crashing effect overlay */}
+                      <div className="absolute inset-0 bg-destructive/10 z-10 flex items-center justify-center">
+                        <span className="text-destructive font-bold text-xl rotate-12 uppercase border-2 border-destructive px-2 py-1 bg-background/80">System Failure</span>
+                      </div>
+                      
+                      <div className="w-10 h-10 rounded bg-chart-1/20 border border-chart-1/50 flex items-center justify-center text-xs">Ag A</div>
+                      <div className="w-10 h-10 rounded bg-destructive/20 border border-destructive animate-pulse flex items-center justify-center text-xs font-bold text-destructive">Ag B</div>
+                      <div className="w-10 h-10 rounded bg-chart-3/20 border border-chart-3/50 flex items-center justify-center text-xs">Ag C</div>
+                      <div className="w-10 h-10 rounded bg-chart-4/20 border border-chart-4/50 flex items-center justify-center text-xs">Ag D</div>
+                    </div>
+                    <div className="text-xs text-muted-foreground font-mono">One Container • Shared Resources</div>
+                  </div>
+                </div>
+                
+                <ul className="space-y-3 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <span className="text-destructive font-bold">❌</span>
+                    <span>One agent crashes → <strong className="text-destructive">All agents die (100% Outage)</strong></span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-destructive font-bold">❌</span>
+                    <span>Resources <strong className="text-destructive">wasted</strong> (provisioned for peak of ALL agents)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-destructive font-bold">❌</span>
+                    <span>Update one agent → <strong className="text-destructive">Redeploy everything</strong></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* AFTER */}
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000"></div>
+              <div className="relative flex flex-col h-full bg-card border border-primary/20 rounded-xl p-6 md:p-8">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xl font-bold text-primary flex items-center gap-2">
+                     ✅ AFTER CONSONANT
+                  </h3>
+                  <span className="text-xs font-mono text-muted-foreground">Independent Agents</span>
+                </div>
+                
+                {/* Visual Representation */}
+                <div className="bg-secondary/30 rounded-lg p-6 mb-6 border border-border/50 border-dashed">
+                  <div className="flex flex-wrap items-end justify-center gap-4">
+                    {/* Agent A */}
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="w-12 h-16 bg-chart-1/10 border border-chart-1/50 rounded-md flex flex-col items-center justify-center p-1">
+                        <span className="text-[10px] text-muted-foreground">Ag A</span>
+                        <div className="w-full h-1 bg-chart-1/50 mt-auto rounded-full"></div>
+                      </div>
+                      <span className="text-[10px] font-mono whitespace-nowrap text-muted-foreground">2 CPU</span>
+                    </div>
+
+                    {/* Agent B (Failed but isolated) */}
+                    <div className="flex flex-col items-center gap-2 relative">
+                      <div className="absolute -top-6 -right-2 bg-destructive text-destructive-foreground text-[10px] px-1 rounded animate-bounce">Restarting</div>
+                      <div className="w-12 h-12 bg-gray-800/50 border border-muted rounded-md flex flex-col items-center justify-center p-1 opacity-50">
+                        <span className="text-[10px] text-muted-foreground">Ag B</span>
+                        <span className="text-xs">💀</span>
+                      </div>
+                      <span className="text-[10px] font-mono whitespace-nowrap text-muted-foreground">0.2 CPU</span>
+                    </div>
+
+                    {/* Agent C (Scaled) */}
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="flex -space-x-8">
+                        <div className="w-12 h-16 bg-chart-3/10 border border-chart-3/50 rounded-md z-0 scale-90 origin-bottom-right"></div>
+                        <div className="w-12 h-16 bg-chart-3/10 border border-chart-3/50 rounded-md z-10 flex flex-col items-center justify-center p-1">
+                          <span className="text-[10px] text-muted-foreground">Ag C</span>
+                          <div className="w-full h-1 bg-chart-3/50 mt-auto rounded-full"></div>
+                        </div>
+                      </div>
+                      <span className="text-[10px] font-mono whitespace-nowrap text-muted-foreground">Scaled x5</span>
+                    </div>
+
+                    {/* Agent D */}
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="w-12 h-8 bg-chart-4/10 border border-chart-4/50 rounded-md flex flex-col items-center justify-center p-1">
+                         <span className="text-[10px] text-muted-foreground">Ag D</span>
+                      </div>
+                      <span className="text-[10px] font-mono whitespace-nowrap text-muted-foreground">0.1 CPU</span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <ul className="space-y-3 text-sm text-foreground">
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary font-bold">✅</span>
+                    <span>Failures <strong>isolated</strong> (One crashes, others stay up)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary font-bold">✅</span>
+                    <span>Resources <strong>right-sized</strong> (Save 40% on compute)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary font-bold">✅</span>
+                    <span><strong>Independent deploys</strong> (Update Agent A in seconds)</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+          </div>
         </div>
+
       </div>
     </section>
   )
 }
 
-function OrchestratorDiagram() {
-  return (
-    <div className="relative max-w-4xl mx-auto">
-      {/* Glow behind the diagram */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent blur-3xl" />
-      
-      <div className="relative rounded-2xl border border-border bg-card/50 backdrop-blur-sm overflow-hidden shadow-2xl shadow-primary/5">
-        {/* Terminal Header */}
-        <div className="h-10 bg-secondary/50 border-b border-border flex items-center gap-2 px-4">
-          <div className="w-3 h-3 rounded-full bg-destructive/60" />
-          <div className="w-3 h-3 rounded-full bg-chart-4/60" />
-          <div className="w-3 h-3 rounded-full bg-primary/60" />
-          <span className="text-xs text-muted-foreground ml-4 font-mono">consonant orchestrator</span>
-        </div>
-        
-        {/* Diagram Content */}
-        <div className="p-8 md:p-12">
-          <svg viewBox="0 0 800 400" className="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Grid Background */}
-            <defs>
-              <pattern id="heroGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="oklch(0.25 0.01 240)" strokeWidth="0.5" opacity="0.5"/>
-              </pattern>
-              <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="oklch(0.75 0.15 195)" />
-                <stop offset="100%" stopColor="oklch(0.55 0.25 290)" />
-              </linearGradient>
-              <filter id="glow">
-                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                <feMerge>
-                  <feMergeNode in="coloredBlur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-            </defs>
-            
-            <rect width="800" height="400" fill="url(#heroGrid)" />
-            
-            {/* User/Goal Node */}
-            <g className="animate-float" style={{ animationDelay: '0s' }}>
-              <rect x="30" y="160" width="140" height="80" rx="12" fill="oklch(0.18 0.01 240)" stroke="oklch(0.30 0.01 240)" strokeWidth="1.5"/>
-              <text x="100" y="195" textAnchor="middle" fill="oklch(0.65 0 0)" fontSize="11" fontFamily="monospace">GOAL</text>
-              <text x="100" y="218" textAnchor="middle" fill="oklch(0.985 0 0)" fontSize="13" fontWeight="500">"Fix database"</text>
-            </g>
-            
-            {/* Flow Line 1 */}
-            <path d="M 170 200 L 250 200" stroke="url(#primaryGradient)" strokeWidth="2" strokeDasharray="6,6" className="animate-dash-flow" filter="url(#glow)"/>
-            <circle cx="250" cy="200" r="4" fill="oklch(0.75 0.15 195)" className="animate-pulse"/>
-            
-            {/* Consonant Control Plane */}
-            <g className="animate-float" style={{ animationDelay: '0.5s' }}>
-              <rect x="270" y="100" width="260" height="200" rx="16" fill="oklch(0.12 0.02 220)" stroke="oklch(0.75 0.15 195)" strokeWidth="2" filter="url(#glow)"/>
-              <text x="400" y="135" textAnchor="middle" fill="oklch(0.75 0.15 195)" fontSize="14" fontWeight="600">CONSONANT CONTROL PLANE</text>
-              
-              {/* Internal Components */}
-              <rect x="290" y="155" width="100" height="45" rx="8" fill="oklch(0.18 0.01 240)" stroke="oklch(0.30 0.01 240)" strokeWidth="1"/>
-              <text x="340" y="183" textAnchor="middle" fill="oklch(0.985 0 0)" fontSize="11">🧠 Planner</text>
-              
-              <rect x="410" y="155" width="100" height="45" rx="8" fill="oklch(0.18 0.01 240)" stroke="oklch(0.30 0.01 240)" strokeWidth="1"/>
-              <text x="460" y="183" textAnchor="middle" fill="oklch(0.985 0 0)" fontSize="11">🛡️ Policy</text>
-              
-              <rect x="350" y="220" width="100" height="45" rx="8" fill="oklch(0.18 0.01 240)" stroke="oklch(0.30 0.01 240)" strokeWidth="1"/>
-              <text x="400" y="248" textAnchor="middle" fill="oklch(0.985 0 0)" fontSize="11">📊 State</text>
-            </g>
-            
-            {/* Flow Line 2 */}
-            <path d="M 530 200 L 580 200 L 580 120 M 580 200 L 580 280" stroke="url(#primaryGradient)" strokeWidth="2" strokeDasharray="6,6" className="animate-dash-flow" filter="url(#glow)"/>
-            
-            {/* Agent Nodes */}
-            <g className="animate-float" style={{ animationDelay: '1s' }}>
-              <rect x="620" y="70" width="150" height="60" rx="10" fill="oklch(0.18 0.01 240)" stroke="oklch(0.55 0.25 290)" strokeWidth="1.5"/>
-              <text x="695" y="95" textAnchor="middle" fill="oklch(0.55 0.25 290)" fontSize="10">DIAGNOSTIC</text>
-              <text x="695" y="115" textAnchor="middle" fill="oklch(0.985 0 0)" fontSize="12">K8s Agent</text>
-            </g>
-            
-            <g className="animate-float" style={{ animationDelay: '1.2s' }}>
-              <rect x="620" y="170" width="150" height="60" rx="10" fill="oklch(0.18 0.01 240)" stroke="oklch(0.55 0.25 290)" strokeWidth="1.5"/>
-              <text x="695" y="195" textAnchor="middle" fill="oklch(0.55 0.25 290)" fontSize="10">REMEDIATION</text>
-              <text x="695" y="215" textAnchor="middle" fill="oklch(0.985 0 0)" fontSize="12">DB Agent</text>
-            </g>
-            
-            <g className="animate-float" style={{ animationDelay: '1.4s' }}>
-              <rect x="620" y="270" width="150" height="60" rx="10" fill="oklch(0.18 0.01 240)" stroke="oklch(0.55 0.25 290)" strokeWidth="1.5"/>
-              <text x="695" y="295" textAnchor="middle" fill="oklch(0.55 0.25 290)" fontSize="10">NOTIFICATION</text>
-              <text x="695" y="315" textAnchor="middle" fill="oklch(0.985 0 0)" fontSize="12">Slack Agent</text>
-            </g>
-            
-            {/* Connect lines to agents */}
-            <circle cx="620" cy="100" r="3" fill="oklch(0.55 0.25 290)" className="animate-pulse"/>
-            <circle cx="620" cy="200" r="3" fill="oklch(0.55 0.25 290)" className="animate-pulse"/>
-            <circle cx="620" cy="300" r="3" fill="oklch(0.55 0.25 290)" className="animate-pulse"/>
-            
-            {/* Labels */}
-            <text x="210" y="185" textAnchor="middle" fill="oklch(0.50 0 0)" fontSize="10">submit</text>
-            <text x="560" y="145" textAnchor="middle" fill="oklch(0.50 0 0)" fontSize="10">orchestrate</text>
-          </svg>
-        </div>
-        
-        {/* Feature Pills */}
-        <div className="px-8 pb-8 flex flex-wrap justify-center gap-3">
-          <FeaturePill icon={<Cpu className="w-4 h-4" />} label="Goal-Driven Orchestration" />
-          <FeaturePill icon={<Shield className="w-4 h-4" />} label="Policy Enforcement" />
-          <FeaturePill icon={<Eye className="w-4 h-4" />} label="Complete Observability" />
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function FeaturePill({ icon, label }: { icon: React.ReactNode; label: string }) {
-  return (
-    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/30 text-sm text-muted-foreground hover:border-primary/30 hover:text-primary transition-colors">
-      {icon}
-      <span>{label}</span>
-    </div>
-  )
-}

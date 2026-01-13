@@ -1,118 +1,131 @@
-import { DocHeader, CodeBlock, Callout, NextStepCard } from "../doc-components"
-import { Layers, Server, Shield, Database } from "lucide-react"
+"use client"
+
+import { DocHeader, Callout, CodeBlock, NextStepCard } from "../doc-components"
+import { Layers, Server, Activity } from "lucide-react"
 
 export default function ArchitecturePage() {
   return (
-    <div>
+    <div className="max-w-4xl">
       <DocHeader 
-        title="System Architecture"
-        description="Learn how Consonant coordinates agents, enforces policies, and manages state across distributed environments."
-        label="ARCHITECTURE"
+        title="Architecture Overview"
+        description="A technical deep-dive into how Consonant orchestrates distributed agents."
+        label="Architecture"
       />
 
-      <div className="prose prose-invert max-w-none text-muted-foreground">
+      <div className="prose prose-invert max-w-none">
+        
+        <h2>High-Level Design</h2>
         <p>
-          Consonant follows a <strong>control plane / data plane</strong> architecture similar to Kubernetes itself. 
-          The control plane handles orchestration logic, policy decisions, and state management, while the 
-          data plane (your agents) runs independently in your infrastructure.
+          Consonant follows a <strong>Micro-Agent Architecture</strong>. 
+          Unlike traditional microservices where services are static and dumb, 
+          Micro-Agents are autonomous but loosely coupled.
+        </p>
+        <p>
+            The system is composed of three distinct layers:
         </p>
 
-        <h2 className="text-foreground text-2xl font-bold mt-12 mb-6">High-Level Overview</h2>
-        
-        {/* Simple Diagram Placeholder */}
-        <div className="my-8 p-8 rounded-xl border border-border bg-secondary/10 flex flex-col items-center gap-8">
-          <div className="p-4 rounded-lg bg-primary/10 border border-primary/20 text-center w-64">
-             <div className="font-bold text-primary mb-1">Control Plane</div>
-             <div className="text-xs text-muted-foreground">API • Planner • Policy Engine</div>
-          </div>
-          <div className="h-8 w-px bg-border dashed" />
-          <div className="grid grid-cols-3 gap-4 w-full max-w-2xl">
-            <div className="p-4 rounded-lg bg-card border border-border text-center">
-              <div className="font-medium text-foreground">Agent A</div>
+        <div className="space-y-8 not-prose my-12">
+            
+            {/* Layer 1 */}
+            <div className="flex gap-6 items-start">
+               <div className="mt-1">
+                 <div className="w-10 h-10 rounded bg-primary flex items-center justify-center text-primary-foreground">
+                    <Layers className="w-6 h-6" />
+                 </div>
+               </div>
+               <div>
+                  <h3 className="text-xl font-bold mb-2 text-foreground">1. The KAgent Runtime</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    This is the data plane. It's a specialized Kubernetes Custom Resource Definition (CRD) that wraps 
+                    your agent code (Python/Node/Go) with a sidecar proxy. The sidecar handles mTLS networking, 
+                    tracing, and policy enforcement *before* traffic hits your code.
+                  </p>
+               </div>
             </div>
-            <div className="p-4 rounded-lg bg-card border border-border text-center">
-              <div className="font-medium text-foreground">Agent B</div>
+
+            {/* Layer 2 */}
+            <div className="flex gap-6 items-start">
+               <div className="mt-1">
+                 <div className="w-10 h-10 rounded bg-secondary border border-border flex items-center justify-center text-foreground">
+                    <Server className="w-6 h-6" />
+                 </div>
+               </div>
+               <div>
+                  <h3 className="text-xl font-bold mb-2 text-foreground">2. The Control Plane</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    The brain of the system. It receives high-level Goals from users ("Process refund"), 
+                    breaks them down into executable Plans, and routes steps to the appropriate KAgents. 
+                    It maintains the Global State of the conversation/workflow.
+                  </p>
+               </div>
             </div>
-            <div className="p-4 rounded-lg bg-card border border-border text-center">
-              <div className="font-medium text-foreground">Agent C</div>
+
+            {/* Layer 3 */}
+            <div className="flex gap-6 items-start">
+               <div className="mt-1">
+                 <div className="w-10 h-10 rounded bg-secondary border border-border flex items-center justify-center text-foreground">
+                    <Activity className="w-6 h-6" />
+                 </div>
+               </div>
+               <div>
+                  <h3 className="text-xl font-bold mb-2 text-foreground">3. Observability Layer</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Consonant automatically collects logs, metrics, and traces from all agents and the control plane.
+                    It stitches them together into coherent "Session Traces" so you can debug complex interactions.
+                  </p>
+               </div>
             </div>
-          </div>
-          <div className="text-xs text-muted-foreground uppercase tracking-widest mt-2">Kubernetes Cluster</div>
         </div>
 
-        <h3 className="text-foreground text-xl font-semibold mt-8 mb-4">Core Components</h3>
+        <h2>Component Diagram</h2>
         
-        <div className="grid md:grid-cols-2 gap-6 my-8">
-          <div className="p-5 rounded-xl border border-border">
-            <div className="flex items-center gap-2 mb-3 text-primary">
-              <Server className="w-5 h-5" />
-              <div className="font-semibold">The Planner</div>
+        <div className="p-8 border border-border rounded-xl bg-card/50 my-8 flex justify-center">
+            {/* A simple CSS representation of the architecture */}
+            <div className="relative w-full max-w-lg aspect-video border-2 border-dashed border-border rounded-xl p-4 flex flex-col justify-between">
+                <span className="absolute top-2 left-4 text-xs font-mono text-muted-foreground">KUBERNETES CLUSTER</span>
+                
+                {/* Control Plane Box */}
+                <div className="w-full h-1/3 border border-primary/50 bg-primary/5 rounded-lg flex items-center justify-center mb-4 relative">
+                   <span className="text-sm font-bold text-foreground">Control Plane</span>
+                   <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-0.5 h-3 bg-border"></div>
+                </div>
+
+                {/* Agents Layer */}
+                <div className="flex justify-around items-end h-1/2">
+                    <div className="w-24 h-24 border border-border bg-secondary/20 rounded-lg flex flex-col items-center justify-center p-2">
+                        <span className="text-xs font-mono mb-1">KAgent</span>
+                        <div className="w-full h-full bg-card border border-border rounded flex items-center justify-center text-xs">Pod A</div>
+                    </div>
+                    <div className="w-24 h-24 border border-border bg-secondary/20 rounded-lg flex flex-col items-center justify-center p-2">
+                         <span className="text-xs font-mono mb-1">KAgent</span>
+                        <div className="w-full h-full bg-card border border-border rounded flex items-center justify-center text-xs">Pod B</div>
+                    </div>
+                     <div className="w-24 h-24 border border-border bg-secondary/20 rounded-lg flex flex-col items-center justify-center p-2">
+                         <span className="text-xs font-mono mb-1">KAgent</span>
+                        <div className="w-full h-full bg-card border border-border rounded flex items-center justify-center text-xs">Pod C</div>
+                    </div>
+                </div>
             </div>
-            <p className="text-sm">
-              Receives high-level goals and decomposes them into executable tasks based on 
-              registered agent capabilities. Uses an LLM-driven reasoning loop (LangGraph) 
-              to adapt to task failures.
-            </p>
-          </div>
-          
-          <div className="p-5 rounded-xl border border-border">
-            <div className="flex items-center gap-2 mb-3 text-primary">
-              <Shield className="w-5 h-5" />
-              <div className="font-semibold">Policy Engine</div>
-            </div>
-            <p className="text-sm">
-              Intercepts every agent invocation to enforce OPA policies. Decides whether to 
-              allow, deny, or require human approval for an action.
-            </p>
-          </div>
         </div>
 
-        <h2 className="text-foreground text-2xl font-bold mt-12 mb-6">The KAgent Sidecar</h2>
-        <p>
-          Consonant interacts with your agents via the <strong>KAgent protocol</strong>. You can implement 
-          this protocol directly, or use our lightweight sidecar/SDK which handles:
-        </p>
-        <ul className="list-disc pl-6 space-y-2 mt-4">
-           <li>Registration of capabilities with the control plane</li>
-           <li>Health checks and liveness probes</li>
-           <li>Standardized logging and tracing (OTEL)</li>
+        <h3>Key Properties</h3>
+        <ul>
+            <li><strong>Decoupled:</strong> Agents don't know about each other seamlessly. They communicate via the Control Plane.</li>
+            <li><strong>Polyglot:</strong> Agent A can be Python, Agent B can be Node.js.</li>
+            <li><strong>Event-Driven:</strong> Communication is asynchronous by default.</li>
         </ul>
 
-        <CodeBlock code={`# Example KAgent Registration
-apiVersion: consonant.dev/v1
-kind: Agent
-metadata:
-  name: researcher
-spec:
-  capabilities:
-    - name: search_web
-    - name: summarize_content
-  scale:
-    minReplicas: 1
-    maxReplicas: 5`} language="yaml" />
-
-        <Callout type="warning" title="Note on Connectivity">
-          The control plane needs network reachability to your agent pods. In a multi-cluster setup, 
-          this is typically handled via an ingress controller or service mesh.
-        </Callout>
-
-        <h2 className="text-foreground text-2xl font-bold mt-12 mb-6">Data Flow</h2>
-        <ol className="list-decimal pl-6 space-y-4 mt-4">
-          <li><strong>Goal Submission:</strong> User submits a goal via CLI or API.</li>
-          <li><strong>Planning:</strong> Control plane analyzes the goal and available agents.</li>
-          <li><strong>Routing:</strong> Task is dispatched to the appropriate agent.</li>
-          <li><strong>Policy Check:</strong> Request is validated against OPA policies.</li>
-          <li><strong>Execution:</strong> Agent performs the task and returns result.</li>
-          <li><strong>Observation:</strong> Result is recorded and plan is updated.</li>
-        </ol>
-
-      </div>
-
-      <div className="mt-16 pt-8 border-t border-border">
-        <h3 className="font-semibold text-foreground mb-4">Related Resources</h3>
-        <div className="grid sm:grid-cols-2 gap-4">
-           <NextStepCard href="/docs/guides/agent-development" title="Building Agents" description="How to write agents compatible with Consonant" />
-           <NextStepCard href="/docs/guides/policy-enforcement" title="Policy Logic" description="Deep dive into OPA policies" />
+        <div className="grid sm:grid-cols-2 gap-4 not-prose mt-12">
+          <NextStepCard 
+            href="/docs/architecture/kagent"
+            title="Deep Dive: KAgent"
+            description="Learn how the agent runtime works."
+          />
+          <NextStepCard 
+            href="/docs/architecture/control-plane"
+            title="Deep Dive: Control Plane"
+            description="Understand routing and state management."
+          />
         </div>
       </div>
     </div>
