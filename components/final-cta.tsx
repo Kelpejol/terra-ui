@@ -112,7 +112,7 @@ export function FinalCTA() {
 
         {/* Footer Links */}
         <div className="flex justify-center gap-8 text-sm text-muted-foreground border-t border-border/50 pt-8">
-           <a href="https://github.com/consonant-ai/consonant" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">GitHub</a>
+           <a href="https://github.com/consonantlabs" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">GitHub</a>
            <Link href="/docs" className="hover:text-foreground transition-colors">Documentation</Link>
            <a href="mailto:team@consonant.ai" className="hover:text-foreground transition-colors">Contact Sales</a>
         </div>

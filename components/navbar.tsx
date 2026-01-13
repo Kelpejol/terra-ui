@@ -26,7 +26,7 @@ export function Navbar() {
           <NavLink href="/docs">Documentation</NavLink>
           <NavLink href="/docs/architecture">Architecture</NavLink>
           <NavLink href="/docs/quickstart">Quickstart</NavLink>
-          <NavLink href="https://github.com/consonant-ai/consonant" external>
+          <NavLink href="https://github.com/consonantlabs" external>
             <Github className="w-4 h-4" />
             GitHub
           </NavLink>
@@ -70,7 +70,7 @@ export function Navbar() {
             <MobileNavLink href="/docs/quickstart" onClick={() => setMobileMenuOpen(false)}>
               Quickstart
             </MobileNavLink>
-            <MobileNavLink href="https://github.com/consonant-ai/consonant" external onClick={() => setMobileMenuOpen(false)}>
+            <MobileNavLink href="https://github.com/consonantlabs" external onClick={() => setMobileMenuOpen(false)}>
               <Github className="w-4 h-4" />
               GitHub
             </MobileNavLink>

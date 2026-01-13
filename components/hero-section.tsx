@@ -48,7 +48,7 @@ export function HeroSection() {
             </a>
           </Button>
           <a 
-            href="https://github.com/consonant-ai/consonant" 
+            href="https://github.com/consonantlabs" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mt-4 sm:mt-0 sm:ml-4"

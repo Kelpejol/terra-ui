@@ -20,9 +20,9 @@ export function Footer() {
               Production infrastructure for multi Ai agents systems.
             </p>
             <div className="flex items-center gap-3">
-              <SocialLink href="https://github.com/consonant-ai/consonant" icon={<Github className="w-4 h-4" />} />
-              <SocialLink href="https://twitter.com/consonant_ai" icon={<Twitter className="w-4 h-4" />} />
-              <SocialLink href="https://linkedin.com/company/consonant-ai" icon={<Linkedin className="w-4 h-4" />} />
+              <SocialLink href="https://github.com/consonantlabs" icon={<Github className="w-4 h-4" />} />
+              <SocialLink href="#" icon={<Twitter className="w-4 h-4" />} />
+              <SocialLink href="#" icon={<Linkedin className="w-4 h-4" />} />
             </div>
           </div>
 
@@ -33,7 +33,7 @@ export function Footer() {
               <FooterLink href="/docs">Documentation</FooterLink>
               <FooterLink href="/docs/quickstart">Quickstart</FooterLink>
               <FooterLink href="/docs/architecture">Architecture</FooterLink>
-              <FooterLink href="https://github.com/consonant-ai/consonant" external>GitHub</FooterLink>
+              <FooterLink href="https://github.com/consonantlabs" external>GitHub</FooterLink>
             </ul>
           </div>
 

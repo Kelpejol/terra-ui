@@ -17,7 +17,7 @@ export default function CommunityPage() {
 
         <div className="grid md:grid-cols-2 gap-6 mt-8">
            <a 
-             href="https://github.com/consonant-ai/consonant" 
+             href="https://github.com/consonantlabs" 
              target="_blank" 
              rel="noopener noreferrer"
              className="p-6 rounded-xl border border-border bg-card/30 hover:border-primary/30 hover:bg-primary/5 transition-all text-center group"
