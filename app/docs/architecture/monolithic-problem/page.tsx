@@ -1,6 +1,7 @@
 "use client"
 
 import { DocHeader, Callout, CodeBlock, NextStepCard } from "../../doc-components"
+import { AlertTriangle, Cpu, Gauge, Zap } from "lucide-react"
 
 export default function MonolithicProblemPage() {
   return (
@@ -12,58 +13,80 @@ export default function MonolithicProblemPage() {
       />
 
       <div className="prose prose-invert max-w-none">
-        <h2>The Single Container Fallacy</h2>
+        <h2>The Single Process Illusion</h2>
         <p>
-            When teams start building agents, they often treat the "Agent System" as a single application. 
-            They package `agent_a.py`, `agent_b.py`, and `orchestrator.py` into one `Dockerfile`.
+            When you package `agent_a.py`, `agent_b.py`, and `orchestrator.py` into a single Dockerfile, you aren't just deploying code; you are creating a **Shared Fate Domain**. 
         </p>
         <p>
-            This works for stateless web servers. It is catastrophic for stateful, resource-intensive agents.
+            In this model, the boundaries between agents are purely logical (functions or classes). In production, these boundaries dissolve under pressure.
         </p>
 
-        <h3>1. Shared Failure Domains</h3>
+        <h3>1. Blast Radius: 100% Shared Failure</h3>
         <p>
-            In a Linux container, all processes share the same userspace. If Agent A triggers a segmentation fault 
-            in a shared C library (common in AI with `numpy`, `torch`, etc.), it can bring down the parent process 
-            or corrupt memory for Agent B.
+            In a Linux container, all processes share the same userspace and memory pool. If your Fraud Detection agent triggers a memory leak while processing a massive dataset, the Linux kernel doesn't just kill that agent. 
         </p>
-        <CodeBlock language="python" code={`# If this crashes in the monolith...
-def agent_a_task():
-    import ctypes
-    ctypes.string_at(0) # Segfault!
-
-# ...Agent B never gets to run this
-def agent_b_task():
-    save_data_to_db() 
-`} />
-
-        <h3>2. Dependency Hell</h3>
         <p>
-            Agent A needs `pydantic==1.10`. Agent B needs `pydantic==2.0`.
-            In a monolith, you are stuck. You have to fork libraries or rewrite code just to make them coexist.
-            With Independent Runtimes, Agent A and B have completely separate `requirements.txt` and Docker images.
+            The **OOM (Out-of-Memory) Killer** terminates the entire pod.
         </p>
+        
+        <CodeBlock language="python" code={`# The Monolithic Death Spiral
+def fraud_agent():
+    # A bug causing 100MB/min leak
+    data.append(process_heavy_ml_inference()) 
 
-        <h3>3. The "Noisy Neighbor" Problem</h3>
+# This healthy agent dies too
+def refund_agent():
+    # Perfectly fine code, but killed by OOM killer 
+    # because it shared a pod with the fraud_agent.
+    process_customer_refund()`} />
+
+        <h3>2. Resource Coupling: The Cost of Waste</h3>
         <p>
-            LLM inference and data processing are bursty. If Agent A suddenly consumes 100% CPU to parse a PDF, 
-            Agent B (which might be handling a user request) gets throttled.
-            Kubernetes resource limits work at the *Pod* level, not the *Process* level (unless you get very fancy with cgroups).
-            By splitting agents into Pods, you get native K8s resource isolation.
+            Agents have wildly different resource profiles. A Researcher might need 4 CPUs and a GPU, while a Router needs 0.1 CPU. 
+        </p>
+        <p>
+            In a monolith, you must provision the pod for the **sum of all worst cases**. If you have 5 agents, you are likely over-provisioning by 400%.
         </p>
 
-        <Callout type="info" title="The Microservices Parallel">
+        <div className="bg-secondary/20 rounded-xl p-6 my-8 border border-border">
+            <h4 className="font-bold flex items-center gap-2 mb-4">
+                <Cpu className="w-5 h-5 text-primary" /> The Waste Math
+            </h4>
+            <ul className="space-y-3 m-0 list-none">
+                <li className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Monolithic Provisioning (100 agents):</span>
+                    <span className="font-mono text-destructive">$292,000/yr</span>
+                </li>
+                <li className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Consonant Isolated Provisioning:</span>
+                    <span className="font-mono text-primary">$125,000/yr</span>
+                </li>
+                <li className="flex justify-between font-bold border-t border-border pt-3">
+                    <span>Direct Savings:</span>
+                    <span className="text-primary">$167,000/yr / environment</span>
+                </li>
+            </ul>
+        </div>
+
+        <h3>3. Deployment Risk: Fixed One, Broke All</h3>
+        <p>
+            Fixing a typo in your Refund Agent shouldn't require restarting your Fraud Detection models. 
+        </p>
+        <p>
+            In a monolith, every deployment is a "Full System Restart." This introduces 12 minutes of fragility per deploy. If you deploy 20 times a week, that is **4 hours of high-risk exposure every single week.**
+        </p>
+
+        <Callout type="warning" title="Noisy Neighbors">
             <p>
-                We learned this lesson in 2014 with Microservices. We are relearning it now with Agents. 
-                Agents are just stateful, autonomous microservices. They should be deployed like them.
+                Agents compete for the same CPU cycles. One greedy agent performing local embedding generation will starve the critical response agent, leading to random timeouts that are impossible to debug in logs.
             </p>
         </Callout>
 
         <div className="grid sm:grid-cols-2 gap-4 not-prose mt-12">
           <NextStepCard 
-            href="/docs/architecture/kagent"
-            title="Solution: KAgent Runtime"
-            description="How we isolate agents."
+            href="/docs/architecture"
+            title="Next: The Isolated Solution"
+            description="How Consonant solves this via KAgent and the Control Plane."
           />
         </div>
       </div>

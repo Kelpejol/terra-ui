@@ -1,62 +1,70 @@
 "use client"
 
-import { DocHeader, Callout, CodeBlock } from "../../doc-components"
+import { DocHeader, Callout, CodeBlock, NextStepCard } from "../../doc-components"
+import { Terminal, Lightbulb, CheckCircle2 } from "lucide-react"
 
 export default function InstallationPage() {
   return (
     <div className="max-w-4xl">
       <DocHeader 
         title="Installation"
-        description="Get Consonant running on your local machine or production cluster."
+        description="Get the world's first agent-native runtime running in under 2 minutes."
         label="Getting Started"
       />
 
       <div className="prose prose-invert max-w-none">
         
-        <h2>System Requirements</h2>
-        <ul>
-            <li><strong>Kubernetes Cluster:</strong> Version 1.25+</li>
-            <li><strong>Helm:</strong> Version 3+</li>
-            <li><strong>Resources:</strong> Minimum 4GB RAM, 2 CPUs (for local dev)</li>
-        </ul>
-
-        <h2>1. Install the CLI</h2>
-        <p>The CLI is your primary tool for interacting with Consonant.</p>
-        
-        <h3>macOS / Linux (scale)</h3>
-        <CodeBlock code="curl -sL https://get.consonant.ai/install | bash" />
-
-        <h3>Manual Binary Install</h3>
-        <p>Download the latest release from our GitHub releases page and add it to your PATH.</p>
-
-        <h2>2. Install the Control Plane</h2>
-        
-        <h3>Local Development (Kind/Minikube/Docker Desktop)</h3>
-        <p>
-            For local development, use the `--local` flag. This configures the control plane to use 
-            lighter resource requests and exposes the API via NodePorts/LoadBalancer for localhost access.
-        </p>
-        <CodeBlock code="cons init --local" />
-
-        <h3>Production (EKS / GKE / AKS)</h3>
-        <p>
-            For production, we recommend using Helm directly for more control over values.
-        </p>
-        <CodeBlock code={`helm repo add consonant https://charts.consonant.ai
-helm repo update
-helm install consonant consonant/control-plane --namespace consonant-system --create-namespace`} />
-
-        <Callout type="warning" title="Production Security">
+        <Callout type="info" title="Why Consonant?">
             <p>
-                In production, ensure you configure TLS and proper ingress classes. 
-                See the <a href="/docs/production/security">Security Guide</a> for details.
+                Unlike local Python scripts, Consonant gives your agents a production-grade home. You get auto-scaling, distributed tracing, and hard resource isolation from the very first command.
             </p>
         </Callout>
 
-        <h2>3. Verify Installation</h2>
-        <CodeBlock code="cons status" />
-        <p>You should see all components (Manager, Ingress, Observability) in <code>Running</code> state.</p>
+        <h2>Step 1: Install the CLI</h2>
+        <p>The `cons` CLI is your gateway to the agent cluster. It handles everything from deployment to log tailing and policy management.</p>
+        
+        <CodeBlock code="curl -sL https://get.consonant.ai/install | bash" />
 
+        <h2>Step 2: Initialize Your Cluster</h2>
+        
+        <p>
+            Consonant runs wherever Kubernetes runs. For your first time, we recommend a local developer setup (Kind, Minikube, or Docker Desktop).
+        </p>
+
+        <div className="bg-secondary/20 rounded-xl p-6 my-8 border border-border">
+            <h4 className="font-bold flex items-center gap-2 mb-4">
+                <Terminal className="w-5 h-5 text-primary" /> Local Quickstart
+            </h4>
+            <CodeBlock code="cons init --local" />
+            <p className="text-xs text-muted-foreground mt-4">This single command installs the Manager, Planner, and Observability stack into the <code>consonant-system</code> namespace.</p>
+        </div>
+
+        <h3>Production Installation</h3>
+        <p>
+            For EKS, GKE, or AKS clusters, use our official Helm chart for fine-grained control over resource limits and ingress.
+        </p>
+        <CodeBlock language="bash" code={`helm repo add consonant https://charts.consonant.ai
+helm repo update
+helm install consonant consonant/control-plane \\
+  --namespace consonant-system \\
+  --create-namespace`} />
+
+        <h2>Step 3: Verify & Access</h2>
+        <p>Ensure your control plane is healthy before deploying your first agent.</p>
+        <CodeBlock code="cons status" />
+
+        <div className="flex items-center gap-4 p-4 rounded-lg bg-green-500/5 border border-green-500/20 my-6">
+            <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
+            <p className="text-sm m-0"><strong>Success:</strong> Your local cluster is ready. Consonant is now watching for agent manifests.</p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-4 not-prose mt-12">
+          <NextStepCard 
+            href="/docs/getting-started/deploy-agent"
+            title="Deploy Your First Agent"
+            description="Turn a simple Python script into a managed KAgent."
+          />
+        </div>
       </div>
     </div>
   )
