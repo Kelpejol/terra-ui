@@ -118,8 +118,8 @@ export function FinalCTA() {
              <Image 
                 src="/kagent-logo.png" 
                 alt="KAgent Logo" 
-                width={80} 
-                height={24} 
+                width={90} 
+                height={30} 
                
               />
               <span className="text-[10px] whitespace-nowrap text-muted-foreground/80 font-mono">solo.io kagent</span>

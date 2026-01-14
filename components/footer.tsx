@@ -75,8 +75,8 @@ export function Footer() {
               <Image 
                 src="/kagent-logo.png" 
                 alt="KAgent Logo" 
-                width={60} 
-                height={18} 
+                width={70} 
+                height={25} 
                
               />
               <span className="text-[10px] whitespace-nowrap text-muted-foreground/80">solo.io kagent (CNCF)</span>
