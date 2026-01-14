@@ -116,7 +116,7 @@ export function FinalCTA() {
           <div className="flex items-center gap-3 px-4 py-2 rounded-full border border-border bg-card/50 opacity-80 backdrop-blur-sm">
              <span className="text-[14px] uppercase tracking-tighter text-muted-foreground">Built on</span>
              <Image 
-                src="/kagent-logo.jpg" 
+                src="/kagent-logo.png" 
                 alt="KAgent Logo" 
                 width={100} 
                 height={40} 

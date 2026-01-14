@@ -73,7 +73,7 @@ export function Footer() {
             <div className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
               <span className="text-[14px] uppercase tracking-tighter">Built on</span>
               <Image 
-                src="/kagent-logo.jpg" 
+                src="/kagent-logo.png" 
                 alt="KAgent Logo" 
                 width={80} 
                 height={30} 
