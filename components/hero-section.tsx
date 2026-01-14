@@ -20,18 +20,14 @@ export function HeroSection() {
         </div>
         
         {/* Main Headline */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground text-center mb-6 max-w-4xl animate-fade-in-up delay-100">
-          <span className="block">Run multi-agent AI systems </span>
-          <span className="block text-primary mt-2"> in production safely</span>
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground text-center mb-6 max-w-5xl animate-fade-in-up delay-100 leading-[1.1]">
+          Run AI agents as isolated, <br className="hidden md:block" />
+          <span className="text-primary">reliable services.</span>
         </h1>
         
         {/* Subheadline */}
         <p className="text-lg md:text-xl text-muted-foreground text-center max-w-3xl mb-10 leading-relaxed animate-fade-in-up delay-200">
-          Deploying all your agents in one container wastes 
-          <span className="text-foreground font-semibold"> 40% of your compute</span>, 
-          creates <span className="text-foreground font-semibold">100% blast radius</span> on every deploy, 
-          and forces you to scale everything together. 
-          Consonant runs each agent independently—they scale separately on your k8s, fail separately, Enforce governance and coordinate agent adaptively.
+          Consonant is a service mesh that prevents cascading failures, noisy neighbors, and scaling bottlenecks in multi-agent systems.
         </p>
         
         {/* CTAs */}

@@ -19,8 +19,8 @@ curl -sL https://get.consonant.dev | bash
 consonant install control-plane --namespace consonant-system`,
     },
     {
-      title: "2. Define Your Agent",
-      description: "Create a manifest with resource limits and capabilities.",
+      title: "2. Wrap Your Agent",
+      description: "Wrap an existing agent in minutes. Create a manifest with resource limits and capabilities.",
       code: `# agent.yaml
 apiVersion: consonant.dev/v1
 kind: Agent
@@ -69,9 +69,14 @@ consonant run "Research competitors for 'AI Orchestration'"`,
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
             Start Building in Minutes
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            Consonant is a single binary that works with your existing Kubernetes cluster.
-          </p>
+          <div className="flex flex-col items-center gap-4">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
+              Consonant is a single binary that works with your existing Kubernetes cluster.
+            </p>
+            <p className="text-primary font-bold text-lg animate-pulse">
+              Works with existing agents — no rewrites.
+            </p>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">

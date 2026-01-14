@@ -6,7 +6,7 @@ export function ProblemSection() {
   const problems = [
     {
       icon: AlertTriangle,
-      title: "BLAST RADIUS DISASTER",
+      title: "Agent blast radius",
       scenario: "One agent crashes → All 5 agents restart.",
       damageLines: [
         "18 days downtime/year",
@@ -21,8 +21,8 @@ export function ProblemSection() {
     },
     {
       icon: Database,
-      title: "COST WASTE DISASTER",
-      scenario: "Over-provisioning 20 CPUs for 1 active agent.",
+      title: "Shared memory death",
+      scenario: "One greedy agent eats 100% RAM, starving the router process.",
       damageLines: [
         "40% compute wasted",
         "$20k/year overspend",
@@ -36,7 +36,7 @@ export function ProblemSection() {
     },
     {
       icon: Code2,
-      title: "DEPLOYMENT RISK DISASTER",
+      title: "Coupled deployments",
       scenario: "Typos in one agent break the entire monolith.",
       damageLines: [
         "Fear of Friday deploys",
@@ -50,23 +50,23 @@ export function ProblemSection() {
       ]
     },
     {
-      icon: Gauge,
-      title: "SCALING HELL DISASTER",
-      scenario: "Scaling your email agent? You must scale your heavy researcher too.",
+      icon: Zap,
+      title: "Unbounded retries",
+      scenario: "Retry loops in one agent amplify failures across the cluster.",
       damageLines: [
         "9x resource bloat",
         "Saturated DB connections",
         "Capped throughput"
       ],
       solutionLines: [
-        "Independent scaling",
-        "Efficient usage",
+        "Policy-based retries",
+        "Circuit breaking",
         "Uncapped growth"
       ]
     },
     {
       icon: Package,
-      title: "DEPENDENCY & LOCK-IN HELL",
+      title: "Dependency Prison",
       scenario: "Python version conflicts & locked into one framework forever.",
       damageLines: [
         "Can't use best tools",
@@ -81,8 +81,8 @@ export function ProblemSection() {
     },
     {
       icon: Cpu,
-      title: "NOISY NEIGHBOR DISASTER",
-      scenario: "One greedy agent eats 100% CPU, starving the router.",
+      title: "Resource Monopoly",
+      scenario: "Scaling your email agent? You must scale your light heavy researcher too.",
       damageLines: [
         "Unpredictable latency",
         "Random timeouts",
@@ -105,7 +105,7 @@ export function ProblemSection() {
             The Production Disasters
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg/relaxed">
-            Monolithic agent systems inevitably hit these walls.
+            Multi-agent systems inevitably hit these walls when running in a single process.
           </p>
         </div>
 
@@ -123,9 +123,12 @@ export function ProblemSection() {
                         {problem.title}
                     </h3>
                 </div>
-                <p className="font-medium text-lg leading-snug">
+                <p className="font-medium text-lg leading-snug mb-3">
                     {problem.scenario}
                 </p>
+                <div className="text-[10px] text-muted-foreground italic">
+                    Common in LangGraph / CrewAI / custom agent stacks
+                </div>
               </div>
 
               {/* Damage Block */}

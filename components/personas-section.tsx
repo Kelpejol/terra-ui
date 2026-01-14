@@ -5,34 +5,34 @@ import { Server, ShieldAlert, Rocket } from "lucide-react"
 export function PersonasSection() {
   const personas = [
     {
-      icon: Server,
-      title: "Platform Engineering",
+      icon: Rocket,
+      title: "AI Engineers",
       needs: [
-        "Running 3+ AI agents in production",
-        "Tired of fragile monolithic deployments",
-        "Need governance and observability"
+        "Building multi-agent systems with LangGraph, CrewAI, or custom frameworks.",
+        "Hitting scaling, latency, or reliability bottlenecks.",
+        "Tired of managing shared failure domains."
       ],
-      quote: "Stop firefighting, start scaling."
+      quote: "Build reliable agents, not fragile scripts."
+    },
+    {
+      icon: Server,
+      title: "Startup ML Teams",
+      needs: [
+        "You’ve outgrown notebooks and local demos.",
+        "Fragmented codebases are slowing your iteration speed.",
+        "Need a production-grade infrastructure layer today."
+      ],
+      quote: "Scale beyond the POC phase in minutes."
     },
     {
       icon: ShieldAlert,
-      title: "Regulated Industries",
+      title: "Platform / Infra Teams",
       needs: [
-        "Need SOC2/HIPAA compliance",
-        "Require complete audit trails",
-        "Can't afford governance gaps"
+        "You need governance, safety, and isolation at scale.",
+        "Require SOC2-ready audit trails for every agent action.",
+        "Need to manage multi-tenant agent fleets."
       ],
-      quote: "Pass audits, not excuses."
-    },
-    {
-      icon: Rocket,
-      title: "AI-First Companies",
-      needs: [
-        "Scaling 3+ agents",
-        "Need independent agent lifecycle",
-        "Want runtime intelligence"
-      ],
-      quote: "Build the AI revolution on solid infrastructure."
+      quote: "Provide a safe, isolated runtime for your AI teams."
     }
   ]
 

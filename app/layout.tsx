@@ -8,10 +8,10 @@ const _inter = Inter({ subsets: ["latin"] })
 const _jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Consonant — Orchestration Infrastructure for Agent Systems",
+  title: "Consonant — Service mesh for agent systems",
   description:
-    "Runtime coordination for production agent workflows. Built on Kagent. Adaptive routing, policy enforcement, and operational controls. Self-hosted or cloud.",
-  generator: "v0.app",
+    "Consonant gives AI agents isolation, observability, and policy control — just like a service mesh does for microservices.",
+  
 }
 
 export default function RootLayout({

@@ -17,9 +17,9 @@ export function ComparisonSection() {
                 <thead>
                     <tr className="border-b border-border">
                         <th className="py-4 px-6 text-left font-medium text-muted-foreground">Feature</th>
-                        <th className="py-4 px-6 text-left font-medium text-muted-foreground">Monolithic</th>
-                        <th className="py-4 px-6 text-left font-medium text-muted-foreground">DIY K8s</th>
-                        <th className="py-4 px-6 text-left font-bold text-primary bg-primary/5 rounded-t-lg">Consonant</th>
+                        <th className="py-4 px-6 text-left font-medium text-muted-foreground whitespace-nowrap">Single-process agents</th>
+                        <th className="py-4 px-6 text-left font-medium text-muted-foreground whitespace-nowrap">Framework-only orchestration</th>
+                        <th className="py-4 px-6 text-left font-bold text-primary bg-primary/5 rounded-t-lg whitespace-nowrap">Agent services (Consonant)</th>
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-border/50">

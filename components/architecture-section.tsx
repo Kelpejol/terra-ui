@@ -1,6 +1,6 @@
 "use client"
 
-import { Activity, Shield, Brain, Layers, Database, HardDrive, Terminal } from "lucide-react"
+import { Activity, Shield, Brain, Layers, Database, HardDrive, Terminal, AlertOctagon, DollarSign } from "lucide-react"
 
 export function ArchitectureSection() {
   return (
@@ -8,11 +8,25 @@ export function ArchitectureSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-                The Complete Architecture: How It Actually Works
+                The Complete Architecture
             </h2>
-            <p className="text-xl text-muted-foreground">
-                Consonant sits between your intelligence and your infrastructure.
-            </p>
+            <div className="max-w-2xl mx-auto space-y-4">
+              <p className="text-xl text-muted-foreground">
+                  Most teams run all agents in one process, container, or job. 
+                  Consonant turns each agent into an <span className="text-foreground font-semibold">independent service</span> with clear boundaries.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
+                <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary text-muted-foreground border border-border">
+                  <Database className="w-3.5 h-3.5" /> Any Framework
+                </span>
+                <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary text-muted-foreground border border-border">
+                  <Activity className="w-3.5 h-3.5" /> Independent Scaling
+                </span>
+                <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary text-muted-foreground border border-border">
+                  <AlertOctagon className="w-3.5 h-3.5" /> Failure Isolation
+                </span>
+              </div>
+            </div>
         </div>
 
         <div className="relative max-w-4xl mx-auto">
@@ -31,7 +45,7 @@ export function ArchitectureSection() {
             {/* 2. CONSONANT CORE */}
             <div className="relative z-10 bg-card border border-primary/20 shadow-2xl shadow-primary/5 rounded-2xl p-8 mb-8">
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-background px-4 text-sm font-bold text-primary border border-primary/20 rounded-full">
-                    2. CONSONANT CORE (Self Hosted)
+                    2. CONSONANT CONTROL PLANE
                 </div>
                 
                 <div className="grid md:grid-cols-3 gap-6">
@@ -77,7 +91,7 @@ export function ArchitectureSection() {
             {/* 4. KAGENT LAYER */}
             <div className="bg-muted/10 border border-border border-dashed rounded-3xl p-8 relative z-10 text-center">
                 <div className="font-bold text-muted-foreground mb-6 tracking-widest text-xs">
-                    4. KAGENT (K8s agentic runtime) - Agent deployed as k8s CRDs on your infra (GKE/EKS/AKS)
+                    4. AGENT RUNTIME (ANY FRAMEWORK) - Independent scaling & failure domains
                 </div>
                 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -144,22 +158,3 @@ export function ArchitectureSection() {
   )
 }
 
-function DollarSign(props: any) {
-    return (
-      <svg
-        {...props}
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <line x1="12" x2="12" y1="2" y2="22" />
-        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-      </svg>
-    )
-  }

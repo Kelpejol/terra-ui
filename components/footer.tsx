@@ -21,7 +21,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-sm text-muted-foreground mb-4">
-              Production infrastructure for multi Ai agents systems.
+              Consonant is not an agent framework. It’s the infrastructure that runs agent systems reliably in production.
             </p>
             <div className="flex items-center gap-3">
               <SocialLink href="https://github.com/consonantlabs" icon={<Github className="w-4 h-4" />} />
@@ -69,8 +69,19 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Consonant. All rights reserved.
           </p>
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <span>Built with ❤️ for platform engineers</span>
+          <div className="flex items-center gap-6 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
+              <span className="text-[10px] uppercase tracking-tighter">Powered by</span>
+              <Image 
+                src="/kagent-logo.png" 
+                alt="KAgent Logo" 
+                width={60} 
+                height={18} 
+                className="brightness-0 invert h-4 w-auto" 
+              />
+              <span className="text-[10px] whitespace-nowrap">solo.io kagent (CNCF)</span>
+            </div>
+            <span>Built with ❤️ for AI engineers</span>
           </div>
         </div>
       </div>
